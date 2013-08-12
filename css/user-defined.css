@@ -1,0 +1,241 @@
+/*The title bar of the chatter*/
+.header {
+    border: 1px solid #E3E3E3;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-image: linear-gradient(bottom, rgb(242,242,242) 12%, rgb(255,255,255) 60%, rgb(255,255,255) 99%);
+    background-image: -o-linear-gradient(bottom, rgb(242,242,242) 12%, rgb(255,255,255) 60%, rgb(255,255,255) 99%);
+    background-image: -moz-linear-gradient(bottom, rgb(242,242,242) 12%, rgb(255,255,255) 60%, rgb(255,255,255) 99%);
+    background-image: -webkit-linear-gradient(bottom, rgb(242,242,242) 12%, rgb(255,255,255) 60%, rgb(255,255,255) 99%);
+    background-image: -ms-linear-gradient(bottom, rgb(242,242,242) 12%, rgb(255,255,255) 60%, rgb(255,255,255) 99%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.12, rgb(242,242,242)),
+        color-stop(0.6, rgb(255,255,255)),
+        color-stop(0.99, rgb(255,255,255))
+    );
+}
+
+/*Some spacing to the left of the links in the title bar*/
+.header span {
+    margin-left: 10px;
+}
+
+.header .icon-comments {
+    opacity: 0.35;
+}
+
+.header .icon-plus-sign {
+    color: green;
+}
+
+/*The content of the chatter*/
+.content,
+.feed {
+    padding: 10px;
+    border-left: 1px solid #E3E3E3;
+    border-right: 1px solid #E3E3E3;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #E3E3E3;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/*The chatter modes*/
+.content ul.chatter-modes {
+    list-style-type: none;
+}
+
+.content ul.chatter-modes li {
+    display: inline;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/*For the mode which is active, remove the hyperlink decoration*/
+.content ul.chatter-modes li.active a {
+    cursor: default;
+    color: #000000;
+    text-decoration: none;
+}
+
+/*Keep some space between the textarea and the button*/
+.content .form-inline button {
+    margin-left: 20px;
+}
+
+.chatter-modes i[class*="icon-"] {
+    opacity: 0.5;
+}
+
+/*Width of the text area will be 80% of the content width when it is not focussed*/
+.not-focussed-input textarea {
+    width: 80%;
+    resize: none;
+}
+
+/*Width of the text area will be 100% of the content width when it is focussed*/
+.focussed-input textarea,
+.file-mode textarea,
+.link-mode textarea {
+    width: 100%;
+    resize: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*Remove the top border radius*/
+.file-mode textarea,
+.link-mode textarea {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/*On focus of the text area, remove the styling provided by twitter bootstrap*/
+.focussed-input textarea:focus,
+.file-mode textarea:focus,
+.link-mode textarea:focus {
+    border-color: #E3E3E3;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/*Adjust the styling of the container below the text area on focus*/
+.focussed-input .well,
+.file-upload-footer.well,
+.link-upload-footer.well {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    margin-top: -10px;
+    padding-top: 10px;
+}
+
+/*The info sign icon below the text area when it is focussed*/
+.focussed-input .well .icon-info-sign,
+.file-mode .well .icon-info-sign,
+.link-mode .well .icon-info-sign {
+    margin-left: 15px;
+    opacity: 0.25;
+}
+
+.focussed-input .well .icon-info-sign:hover,
+.file-mode .well .icon-info-sign:hover,
+.link-mode .well .icon-info-sign:hover {
+    opacity: 1;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*A horizontal rule that divides the content from the feed and seperates two or more posts*/
+.content hr,
+.feed hr {
+    margin-top: 40px;
+    clear: both;
+}
+
+/*Remove the grey background color provided by default by the twitter bootstrap "well" class*/
+.anti-well {
+    background-color: #FFFFFF;
+}
+
+/*Remove too much margin at the bottom*/
+.file-upload-mode,
+.file-upload-mode-group {
+    margin-bottom: 0;
+}
+
+/*Remove the rounded border*/
+.file-upload-mode-group {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.link-inputs {
+    margin-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/*Center align the text inside the file upload modes*/
+.file-upload-mode {
+    text-align: center;
+}
+
+/*Give a sky blue color when the mouse hovers over the different file upload modes*/
+.file-upload-mode:hover {
+    background-color: #EBF4F7;
+}
+
+/*Adjust the gap between the content and the feed*/
+.feed {
+    margin-top: -20px;
+    padding-bottom: 20px;
+}
+
+.feed ul.nav {
+    margin-top: -27px;
+}
+
+.post {
+    clear: both;
+}
+
+/*Reduce the gaps between two or more posts*/
+.post hr {
+    margin-top: -10px;
+}
+
+/*The profile pic of the user in the feed*/
+.profile-pic {
+    height: 65px;
+    width: 55px;
+    padding-right: 15px;
+}
+
+/*The author of the post - the display name*/
+.post-author {
+    font-weight: bolder;
+    color: #005580;
+}
+
+/*The actions and timestamp of a post - comment, like, timestamp of post creation*/
+.post-tools {
+    margin-top: -10px;
+}
+
+.post-tools a {
+    font-size: 12px;
+    padding-right: 7px;
+    padding-left: 7px;
+}
+
+.post-tools a:first-child {
+    padding-left: 0;
+}
+
+.post-tools a:hover {
+    color: #0088CC;
+}
+
+.post-tools .muted {
+    padding-left: 7px;
+}
+
+.btn-success.disabled {
+    background-color: #DCDFE0;
+    font-weight: bolder;
+}
+
+.description {
+    margin-top: -10px;
+}

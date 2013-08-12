@@ -1,0 +1,78 @@
+{
+    "settings": {
+        "expandOnLoad": true,
+        "expandFeeds": true,
+        "chatterModes": [
+            {
+                "mode": "Post",
+                "icon": "icon-comment"
+            },
+            {
+                "mode": "File",
+                "icon": "icon-file"
+            },
+            {
+                "mode": "Link",
+                "icon": "icon-link"
+            },
+            {
+                "mode": "Poll",
+                "icon": "icon-bar-chart"
+            }
+        ],
+        "activeMode": "Post",
+        "displayMode": "desktop",
+        "allowComments": false,
+        "allowLikes": false
+    },
+    "target": {
+        "id": 1,
+        "profileId": 1,
+        "name": "S-96658",
+        "iconUrl": "icon-user",
+        "feedItems": [
+            {
+                "from": "Courtney Dascenzo",
+                "profilePicUrl": "img/profile-placeholder.gif",
+                "title": "QA LOE Status",
+                "type": "Post",
+                "body": "changed QA LOE from 3.00 to 3.50",
+                "timestamp": "2013-03-24T15:12:44.817Z"
+            },
+            {
+                "from": "Courtney Dascenzo",
+                "profilePicUrl": "img/profile-placeholder.gif",
+                "title": "QA LOE Status",
+                "type": "Post",
+                "body": "changed QA LOE from a blank value to 3.00",
+                "timestamp": "2013-03-24T15:06:44.817Z"
+            },
+            {
+                "from": "Courtney Dascenzo",
+                "profilePicUrl": "img/profile-placeholder.gif",
+                "title": "QA LOE Status",
+                "type": "File",
+                "fileUrl": "sampleFile.pdf",
+                "body": "Just a sample file",
+                "timestamp": "2013-03-23T18:22:01.817Z"
+            },
+            {
+                "from": "Courtney Dascenzo",
+                "profilePicUrl": "img/profile-placeholder.gif",
+                "title": "QA LOE Status",
+                "type": "Link",
+                "linkName": "Cloudspokes Chatter Directive Challenge",
+                "linkUrl": "http://www.cloudspokes.com/challenges/2125",
+                "body": "Just a sample link",
+                "timestamp": "2013-03-22T08:37:19.817Z"
+            }
+        ]
+    },
+    "source": {
+        "id": 1,
+        "profileId": 1,
+        "name": "S-96658",
+        "userName": "Courtney Dascenzo",
+        "iconUrl": "icon-user"
+    }
+}

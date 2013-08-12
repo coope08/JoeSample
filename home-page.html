@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html ng-app="chatterUI">
+    <head>
+        <title>
+            Chatter UI Directive
+        </title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/user-defined.css" rel="stylesheet">
+        //<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css">
+        <link rel="icon" type="image/png" href="img/favicon.ico">
+        
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.popupWindow.js"></script>
+        <script src="js/trimpath-template-1.0.38.js"></script>
+   	    <script src="js/forcetk.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/directives.js"></script>
+        //<script type="text/javascript" src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+        //<script type="text/javascript" src="jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
+        <script type="text/javascript">
+        
+        /*
+		 * This code allows you to use the Force.com REST API sample from your own
+		 * server, using OAuth to obtain a session id.
+		 * Note that you will need to run proxy.php, since Javascript loaded from your
+		 * own server cannot directly call the REST API.
+		 */
+
+		// OAuth Configuration
+		var loginUrl    = 'https://login.salesforce.com/';
+		var clientId    = '3MVG9A2kN3Bn17hvHPwyiaoXtjGqxsOFLSSMJIoj8HFH1rVV75hIIqRuVV5MaLiaRdQNj1tm.dwbiOPUqg7eM';
+		var redirectUri = 'https://pacific-inlet-1581.herokuapp.com/oauthcallback.html';
+		var proxyUrl    = 'https://pacific-inlet-1581.herokuapp.com/proxy.php?mode=native';
+
+		var client = new forcetk.Client(clientId, loginUrl, proxyUrl);
+
+		var ajaxgif = "<img src='img/ajax.gif' />";
+
+		var $dialog = null;
+
+		// We use $j rather than $ for jQuery
+		if (window.$j === undefined) {
+		    $j = $;
+		}
+		
+		function poscallback(response)
+		{
+			alert("in poscallback");
+			console.log(response);
+			logginCallback();
+		}
+		
+		function errcallback(response)
+		{
+			console.log('errcallback');
+			console.log(response);
+			alert("in error: "+response);
+			$dialog.dialog('option', 'title', 'Error');
+      $dialog.dialog('option', 'modal', true);
+      $dialog.html(TrimPath.processDOMTemplate("error_jst", response));
+      $dialog.find('#ok').click(function(e) {
+          e.preventDefault();
+          $dialog.dialog('close');
+          logout(e);
+      });
+      $dialog.dialog('open');
+		}
+		
+
+		$j(document).ready(function() {
+			/*$j('#login').popupWindow({ 
+				windowURL: getAuthorizeUrl(loginUrl, clientId, redirectUri),
+				windowName: 'Connect',
+				centerBrowser: 1,
+				height:524, 
+				width:675
+			});
+
+			$dialog = $j('<div></div>')
+				.dialog({
+					autoOpen: false,
+					width: 450
+				});*/
+		});
+
+		function getAuthorizeUrl(loginUrl, clientId, redirectUri){
+		    return loginUrl+'services/oauth2/authorize?display=popup'
+		        +'&response_type=token&client_id='+escape(clientId)
+		        +'&redirect_uri='+escape(redirectUri);
+		}
+
+		function hideButton(){
+			$j('#connect').html(ajaxgif+" connecting...");
+		}
+		
+		function loginToSF() {
+			var url = getAuthorizeUrl(loginUrl, clientId, redirectUri);
+			window.open(url, 'Connect', "width=900', height=600");
+		}
+
+		function sessionCallback(oauthResponse) {
+		    if (typeof oauthResponse === 'undefined'
+		        || typeof oauthResponse['access_token'] === 'undefined') {
+		        alert("undefined");
+		        //$j('#prompt').html('Error - unauthorized!');
+		        eCallback({
+		            status: 0, 
+		            statusText: 'Unauthorized', 
+		            responseText: 'No OAuth response'
+		        });
+		    } else {
+		        client.setSessionToken(oauthResponse.access_token, null,
+		            oauthResponse.instance_url);
+		        // Kick things off by doing a describe on Account... 
+		        $j('#prompt').html("Logging in...");
+		        client.describe('Account', poscallback, errcallback);
+		        //client.ajax('/v24.0/sobjects/Account/describe/', poscallback, errcallback, 'GET');
+		       
+		    }
+		}
+		
+		if(client.sessionId === null)
+		{
+			loginToSF();
+		}
+		
+		
+		</script>
+    </head>
+
+    <body>
+
+        <div class="container" ng-controller="HomePageCtrl">
+
+            <div class="row-fluid">
+                <div class="span1">
+                    &nbsp;
+                </div>
+            </div>
+
+            <div class="row-fluid">
+
+                <div class="span2">
+                </div>
+
+                <div class="span8">
+                    <!-- Chatter Directive -->
+                    <cmc-chatter settings="model.settings" target="model.target" source="model.source">
+                    </cmc-chatter>
+                </div>
+
+            </div>
+        </div>
+
+        
+    </body>
+</html>

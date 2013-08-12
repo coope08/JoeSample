@@ -1,0 +1,248 @@
+
+<div class="row-fluid" ng-show="settings.expandOnLoad">
+
+    <div class="span12">
+
+        <p>
+            <i class="icon-4x pull-left {{target.iconUrl}}"></i> 
+            <h6>Story</h6>
+            <h4>{{target.name}}</h4>
+        </p>
+
+    </div>
+
+</div>
+
+<!-- The header / title bar of the chatter -->
+<div class="header" ng-show="settings.expandOnLoad">
+
+        <span>
+            <i class="icon-comments"></i> 
+
+            <!-- On click, will show / hide feeds -->
+            <a href="" ng-click="toggleDisplayFeeds()"><span ng-show="!showFeeds">Show Feed</span><span ng-show="showFeeds">Hide Feed</span></a>
+        </span>
+        <span>
+            <i class="icon-plus-sign"></i> 
+            <a href="">Follow</a>
+        </span>
+
+</div>
+
+<!-- The content of the chatter -->
+<div class="content" ng-class="{'border-bottom': !showFeeds}" ng-show="settings.expandOnLoad">
+    <div class="row-fluid">
+        <div class="span10">
+
+            <!-- The chatter modes - desktop version -->
+            <ul class="chatter-modes" ng-show="settings.displayMode == 'desktop'">
+                <li ng-repeat="chatterMode in settings.chatterModes" ng-class="{'active': isChatterModeActive(chatterMode.mode)}">
+                    <i class="{{chatterMode.icon}}"></i> 
+                    <a href="" ng-click="changeChatterMode(chatterMode.mode)">{{chatterMode.mode}}</a>
+                </li>
+            </ul>
+
+            <!-- The chatter modes - mobile version -->
+            <ul class="nav nav-pills" ng-show="settings.displayMode == 'mobile'">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                        <i class="{{getActiveModeIconClass()}}"></i> {{settings.activeMode}}
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="chatterMode in settings.chatterModes"><a href="" ng-click="changeChatterMode(chatterMode.mode)"><i class="{{chatterMode.icon}}"></i> {{chatterMode.mode}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- The "Post" based chatter mode -->
+            <div class="post-mode" ng-show="isChatterModeActive('Post')">
+                <div class="form-inline not-focussed-input" ng-show="postModeTextarea('non-focussed')">
+                    <textarea rows="1" placeholder="Write something..." ng-click="InputFocussed()"></textarea>
+
+                    <button type="button" class="btn btn-success">Share</button>
+                </div>
+
+                <div class="focussed-input" ng-show="postModeTextarea('focussed')">
+                    <textarea rows="3" placeholder="Write something..."></textarea>
+                    <div class="well">
+                        <span class="pull-left">
+                            To this story <a href=""><i class="icon-info-sign"></i></a>
+                        </span>
+                        <button type="button" class="btn btn-success pull-right">Share</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The "File" based chatter mode -->
+            <div class="file-mode" ng-show="isChatterModeActive('File')">
+                <div class="well anti-well file-upload-mode-group">
+                    <div class="row-fluid" ng-show="showFileUploadModes">
+
+                        <div class="span6 well anti-well file-upload-mode">
+                            <a href="">Select a file from Salesforce</a>
+                        </div>
+
+                        <div class="span6 well anti-well file-upload-mode">
+                            <a href="" ng-click="showFileUploadModes = false">Upload a file from your computer</a>
+                        </div>
+
+                    </div>
+
+                    <div ng-show="!showFileUploadModes">
+                        <button class="btn btn-mini" type="button">Chose File</button>
+                        No file chosen
+                        <button type="button" class="close" ng-click="showFileUploadModes = true">&times;</button>
+                        <h6 class="muted">Maximum file size is 2GB</h6>
+                    </div>
+                </div>
+                <div class="file-description">
+                    <textarea rows="3" placeholder="Say something about this file..."></textarea>
+                </div>
+                <div class="well file-upload-footer">
+                    <span class="pull-left">
+                        To this story <a href=""><i class="icon-info-sign"></i></a>
+                    </span>
+                    <button type="button" class="btn btn-success pull-right disabled">Share</button>
+                </div>
+            </div>
+
+            <!-- The "Link" based chatter mode -->
+            <div class="link-mode" ng-show="isChatterModeActive('Link')">
+
+                <div class="well anti-well link-inputs">
+                    <div class="row-fluid">
+                        <div class="span2">
+                            <h5>Link URL</h5>
+                        </div>
+                        <div class="span10">
+                            <input type="text" class="input-block-level" value="http://">
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span2">
+                            <h5>Link Name</h5>
+                        </div>
+                        <div class="span10">
+                            <input type="text" class="input-block-level">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="link-description">
+                    <textarea rows="3" placeholder="Say something about this link..."></textarea>
+                </div>
+
+                <div class="well link-upload-footer">
+                    <span class="pull-left">
+                        To this story <a href=""><i class="icon-info-sign"></i></a>
+                    </span>
+                    <button type="button" class="btn btn-success pull-right disabled">Share</button>
+                </div>
+
+            </div>
+
+            <!-- The "Poll" based chatter mode -->
+            <div class="poll-mode" ng-show="isChatterModeActive('Poll')">
+                <div class="alert alert-error">
+                    No information on the structure of this chatter mode provided. Nothing to show.
+                </div>
+            </div>
+
+            <!-- The seperator -->
+            <hr ng-show="showFeeds">
+
+        </div>
+
+        <div class="span2">
+            <h5>Followers</h5>
+            No followers
+        </div>
+    </div>
+
+</div>
+
+<!-- The chatter feed -->
+<div class="feed" ng-show="showFeeds && settings.expandOnLoad" ng-class="{'border-bottom': showFeeds}">
+    <div class="row-fluid">
+
+        <!-- Display the feeds -->
+        <div class="span10" ng-show="feedCount() > 0">
+
+            <!-- Feed sort options -->
+            <div class="pull-right">
+                Sort By:
+                <ul class="nav nav-pills pull-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                            Post Date
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Post Date</a></li>
+                            <li><a href="">Comments</a></li>
+                            <li><a href="">Likes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- The feeds -->
+            <div class="post" ng-repeat="feedItem in target.feedItems">
+
+                <!-- Profile pic -->
+                <img ng-src="{{feedItem.profilePicUrl}}" class="profile-pic pull-left">
+
+                <p class="post-content">
+
+                    <!-- Author of the feed -->
+                    <a href="" class="post-author">{{feedItem.from}}</a> 
+
+                    <!-- Body of the feed, in case of a post -->
+                    <span ng-show="feedItem.type == 'Post'">
+                        {{feedItem.body}}
+                    </span>
+
+                    <!-- File link, in case of a file -->
+                    <span ng-show="feedItem.type == 'File'">
+                        uploaded a <a ng-href="{{feedItem.fileUrl}}">file</a>
+                    </span>
+
+                    <!-- Link Url, in case of a link -->
+                    <span ng-show="feedItem.type == 'Link'">
+                        suggested a link : <a ng-href="{{feedItem.linkUrl}}">{{feedItem.linkName}}</a>
+                    </span>
+
+                </p>
+
+                <!-- Body of the feed, in case of a file or link -->
+                <p class="description" ng-show="feedItem.type == 'File' || feedItem.type == 'Link'">
+                    <span class="text-info">Description:</span> {{feedItem.body}}
+                </p>
+
+                <!-- The post tools -->
+                <p class="post-tools">
+                    <span ng-show="settings.allowComments">
+                        <a href="">Comment</a>
+                        &#183;
+                    </span>
+                    <span ng-show="settings.allowLikes">
+                        <a href="">Like</a>
+                        &#183;
+                    </span>
+                    <span class="muted">
+                        {{feedItem.timestamp | date: 'medium'}}
+                    </span>
+                </p>
+
+                <hr ng-show="isLastPost($index)">
+            </div>
+        </div>
+
+        <!-- In case there are no feeds to display -->
+        <div class="span10 alert alert-success" ng-show="feedCount() == 0">
+            There are no feeds to show
+        </div>
+
+    </div>
+</div>
