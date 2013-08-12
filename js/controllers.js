@@ -315,7 +315,7 @@ function ChatterTemplateCtrl($scope) {
 
 function logginCallback()
 {
-	alert("in logginCallback");
 	angular.element($('#mainTest')).scope().recordId = "001i000000KoIVU";
+	alert(angular.element($('#mainTest')).scope().recordId);
 	angular.element($('#mainTest')).scope().getFeed(false);
 }
