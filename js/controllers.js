@@ -130,7 +130,7 @@ function ChatterTemplateCtrl($scope) {
     $scope.getFeed = function(addPosts)
     {
     	//check for login
-    	alert("in getFeed");
+    	alert("in getFeed: "+ addPosts + ": "+$scope.recordId);
     	if(client.sessionId !== null)
     	{
     		if(addPosts != true)
@@ -139,7 +139,7 @@ function ChatterTemplateCtrl($scope) {
     			$scope.$digest();
     		}
     		//call forcetk client and request feed-items for a record
-    		client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordID + '/feed-items',$scope.getFeedSuccessCallback, $scope.errorCallback, "GET");
+    		client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordID + '/feed-items',$scope.getFeedSuccessCallback, $scope.errorCallback, "GET",,);
     	}
     	else
     	{
@@ -155,7 +155,7 @@ function ChatterTemplateCtrl($scope) {
     		var tempNextPageUrl = $scope.nextPageUrl.substring(14,$scope.nextPageUrl.length);
     		
     		//call forcetk client and request feed-items from a record
-    		client.ajax(tempNextPageUrl, $scope.getFeedSuccessCallback, $scope.errorCallback, "GET");
+    		client.ajax(tempNextPageUrl, $scope.getFeedSuccessCallback, $scope.errorCallback, "GET",,);
     		$scope.retrievingNextPage = true; //disable the showMore button so user can click only once
     	}
     	else
@@ -247,7 +247,7 @@ function ChatterTemplateCtrl($scope) {
     		//turn the data into a string so we can send it over POST method
     		data = JSON.stringify(data);
     		//use forcetk.js ajax method to post the data
-    		client.ajax('/v27.0/chatter/feeds/record/'+$scope.recordId+'/feed-items', $scope.postLinkSuccess, $scope.errorCallback, "POST");
+    		client.ajax('/v27.0/chatter/feeds/record/'+$scope.recordId+'/feed-items', $scope.postLinkSuccess, $scope.errorCallback, "POST",,);
     		$scope.postingState = true;
     	}
     	else
@@ -275,7 +275,7 @@ function ChatterTemplateCtrl($scope) {
     	if ($scope.postModeTextAreaValue != null && $scope.postModeTextAreaValue != "")
     	{
     		data = JSON.stringify(data);
-    		client.ajax('/v24.0/chatter/feeds/record/'+$scope.recordId+'/feed-items',$scope.postTextSuccess,$scope.errorCallback, "POST");
+    		client.ajax('/v24.0/chatter/feeds/record/'+$scope.recordId+'/feed-items',$scope.postTextSuccess,$scope.errorCallback, "POST",,);
     		$scope.postingState = true;
     	}
     	else
