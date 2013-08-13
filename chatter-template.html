@@ -1,6 +1,12 @@
 
 <div class="row-fluid" ng-show="settings.expandOnLoad">
-
+	<div>
+		<form ng-submit="getFeed('false')">
+        	<input type="text" ng-model="recordId"  size="30"
+               	placeholder="Enter Record ID">
+        	<input class="btn btn-success" type="submit" value="feed">
+        </form>
+	</div>
     <div class="span12">
 
         <p>
@@ -56,11 +62,12 @@
             </ul>
 
             <!-- The "Post" based chatter mode -->
+            <form ng-submit="postTextItem()">
             <div class="post-mode" ng-show="isChatterModeActive('Post')">
                 <div class="form-inline not-focussed-input" ng-show="postModeTextarea('non-focussed')">
                     <textarea rows="1" placeholder="Write something..." ng-click="InputFocussed()"></textarea>
 
-                    <button type="button" class="btn btn-success">Share</button>
+                    <input class="btn btn-success pull-right" type="submit" value="Share">
                 </div>
 
                 <div class="focussed-input" ng-show="postModeTextarea('focussed')">
@@ -69,10 +76,11 @@
                         <span class="pull-left">
                             To this story <a href=""><i class="icon-info-sign"></i></a>
                         </span>
-                        <button type="button" class="btn btn-success pull-right">Share</button>
+                        <input class="btn btn-success pull-right" type="submit" value="Share">
                     </div>
                 </div>
             </div>
+            </form>
 
             <!-- The "File" based chatter mode -->
             <div class="file-mode" ng-show="isChatterModeActive('File')">
