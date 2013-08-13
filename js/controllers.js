@@ -167,6 +167,7 @@ function ChatterTemplateCtrl($scope) {
     //called on successful retrieval of the feed
     $scope.getFeedSuccessCallback = function(response)
     {
+    alert("in feedSuccess");
     	//set nextPageUrl for getting more feeds that are located on the next page
     	$scope.nextPageUrl = response.nextPageUrl;
     	
