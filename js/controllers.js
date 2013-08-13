@@ -130,10 +130,11 @@ function ChatterTemplateCtrl($scope) {
     $scope.getFeed = function(addPosts)
     {
     	//check for login
+    	addPosts = false;
     	alert("in getFeed: "+ addPosts + ": "+$scope.recordId);
     	if(client.sessionId !== null)
     	{
-    		if(addPosts !== true)
+    		if(addPosts != true)
     		{
     			$scope.alertMessage = "Loading feed items...";
     			$scope.$digest();
