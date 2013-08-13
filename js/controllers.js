@@ -130,8 +130,7 @@ function ChatterTemplateCtrl($scope) {
     $scope.getFeed = function(addPosts)
     {
     	//check for login
-    	addPosts = false;
-    	alert("in getFeed: "+ addPosts + ": "+$scope.recordId);
+    	alert(client.sessionId);
     	if(client.sessionId !== null)
     	{
     		if(addPosts != true)
@@ -139,6 +138,7 @@ function ChatterTemplateCtrl($scope) {
     			$scope.alertMessage = "Loading feed items...";
     			$scope.$digest();
     		}
+    		alert("calling ajax in getFeed");
     		//call forcetk client and request feed-items for a record
     		client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordID + '/feed-items',$scope.getFeedSuccessCallback, $scope.errorCallback, "GET");
     	}
