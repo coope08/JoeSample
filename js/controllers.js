@@ -127,17 +127,17 @@ function ChatterTemplateCtrl($scope) {
     
     //calls client .ajax() function with a url that retrieves all the feed items of a specific record
     //RecordID  is passed through the url. 
-    $scope.getFeed = function()
+    $scope.getFeed = function(addPosts)
     {
     	//check for login
     	alert("in getFeed: "+ addPosts + ": "+$scope.recordId);
     	if(client.sessionId !== null)
     	{
-    		//if(addPosts !== true)
-    		//{
+    		if(addPosts !== true)
+    		{
     			$scope.alertMessage = "Loading feed items...";
     			$scope.$digest();
-    		//}
+    		}
     		//call forcetk client and request feed-items for a record
     		client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordID + '/feed-items',$scope.getFeedSuccessCallback, $scope.errorCallback, "GET");
     	}
