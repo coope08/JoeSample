@@ -131,9 +131,9 @@ function ChatterTemplateCtrl($scope) {
     {
     	//check for login
     	alert(client.sessionId);
-    	if(client.sessionId != null)
+    	if (client.sessionId != null)
     	{
-    		if(addPosts != true)
+    		if (addPosts != true)
     		{
     			$scope.alertMessage = "Loading feed items...";
     			$scope.$digest();
@@ -151,7 +151,7 @@ function ChatterTemplateCtrl($scope) {
     //get the nextPageURL parameter from the scope and retrieve additional feed items
     $scope.getNextPage = function()
     {
-    	if(client.sessionId !== null)
+    	if (client.sessionId !== null)
     	{
     		var tempNextPageUrl = $scope.nextPageUrl.substring(14,$scope.nextPageUrl.length);
     		
