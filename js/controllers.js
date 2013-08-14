@@ -129,7 +129,7 @@ function ChatterTemplateCtrl($scope) {
     //RecordID  is passed through the url. 
     $scope.getFeed = function(addPosts)
     {
-    	$scope.target = $scope.recordId;
+    	$scope.recordId = $scope.target;
     	//check for login
     	alert(client.sessionId);
     	if (client.sessionId != null)
@@ -137,9 +137,9 @@ function ChatterTemplateCtrl($scope) {
     	alert("in sessionId");
     		/*if (addPosts != true)
     		{
-    			$scope.alertMessage = "Loading feed items...";
-    			$scope.$digest();
-    		}*/
+    			$scope.alertMessage = "Loading feed items...";*/
+    			$scope.$apply('$scope.alertMessage = "Loading feed items..."');
+    		//}*/
     		alert("calling ajax in getFeed");
     		//call forcetk client and request feed-items for a record
     		client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedSuccessCallback, $scope.getFeedErrorCallback, "GET");
@@ -170,7 +170,7 @@ function ChatterTemplateCtrl($scope) {
     //called on successful retrieval of the feed
     $scope.getFeedSuccessCallback = function(response)
     {
-    alert("in feedSuccess");
+    alert("in feedSuccess + length: "+response.items.length);
     	//set nextPageUrl for getting more feeds that are located on the next page
     	$scope.nextPageUrl = response.nextPageUrl;
     	
@@ -204,8 +204,6 @@ function ChatterTemplateCtrl($scope) {
     	//digest everything so the model gets updated
     	//$scope.$apply();
     	
-    	alert("before clearFeed");
-    	$scope.clearFeed();
     };
     
     //called on unsuccessful retrieval of feed items and alerts the user
