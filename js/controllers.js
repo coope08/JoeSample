@@ -129,6 +129,7 @@ function ChatterTemplateCtrl($scope) {
     //RecordID  is passed through the url. 
     $scope.getFeed = function(addPosts)
     {
+    	$scope.target.id = $scope.recordId;
     	//check for login
     	if (client.sessionId != null)
     	{
