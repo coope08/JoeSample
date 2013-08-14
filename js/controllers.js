@@ -133,6 +133,7 @@ function ChatterTemplateCtrl($scope) {
     	alert(client.sessionId);
     	if (client.sessionId != null)
     	{
+    	alert("in sessionId");
     		if (addPosts != true)
     		{
     			$scope.alertMessage = "Loading feed items...";
