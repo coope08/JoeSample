@@ -202,7 +202,7 @@ function ChatterTemplateCtrl($scope) {
     		$scope.addFeedItem(newItem);
     	};
     	//digest everything so the model gets updated
-    	$scope.$digest();
+    	$scope.$apply(function () {$scope.alertMessage = "Loading feed items...";});
     	
     	alert("before clearFeed");
     	$scope.clearFeed();
