@@ -148,8 +148,6 @@ function ChatterTemplateCtrl($scope) {
     	{
     		alert("You are not logged in.");
     	}
-    	alert("before clearFeed");
-    	$scope.clearFeed();
     };
     
     //get the nextPageURL parameter from the scope and retrieve additional feed items
@@ -205,6 +203,9 @@ function ChatterTemplateCtrl($scope) {
     	};
     	//digest everything so the model gets updated
     	$scope.$digest();
+    	
+    	alert("before clearFeed");
+    	$scope.clearFeed();
     };
     
     //called on unsuccessful retrieval of feed items and alerts the user
