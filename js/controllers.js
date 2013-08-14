@@ -129,7 +129,7 @@ function ChatterTemplateCtrl($scope) {
     //RecordID  is passed through the url. 
     $scope.getFeed = function(addPosts)
     {
-    	$scope.target.id = $scope.recordId;
+    	//$scope.target.id = $scope.recordId;
     	//check for login
     	if (client.sessionId != null)
     	{
@@ -201,8 +201,8 @@ function ChatterTemplateCtrl($scope) {
     		$scope.addFeedItem(newItem);
     	};
     	//digest everything so the model gets updated
-    	//$scope.$apply('$scope.alertMessage = "Loading feed items..."');
-    	
+    	$scope.$apply('$scope.alertMessage = "Loading feed items..."');
+    	alert("after apply in success");
     };
     
     //called on unsuccessful retrieval of feed items and alerts the user
