@@ -141,8 +141,9 @@ function ChatterTemplateCtrl($scope) {
     		//}*/
     		alert("calling ajax in getFeed");
     		//call forcetk client and request feed-items for a record
-    		
-    			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.$apply(function(){$scope.getFeedSuccessCallback});, $scope.getFeedErrorCallback, "GET");
+    		$scope.$apply(function(){
+    			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedSuccessCallback, $scope.getFeedErrorCallback, "GET");
+    		});
     		alert("out of ajax");	
     	}
     	else
@@ -261,6 +262,8 @@ function ChatterTemplateCtrl($scope) {
     	{
     		alert("Please enter the link url");
     	}
+    	
+    	$scope.$apply(function(){$scope.model});
     };
     
     //post the post items to the chatter feed
