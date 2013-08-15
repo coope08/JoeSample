@@ -204,8 +204,8 @@ function ChatterTemplateCtrl($scope) {
     		$scope.addFeedItem(newItem);
     	};
     	//digest everything so the model gets updated
-    	alert("before apply");
-    	$scope.$apply();
+    	//alert("before apply");
+    	//$scope.$apply();
     	alert("after apply in success");
     };
     
