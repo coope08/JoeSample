@@ -157,9 +157,7 @@ if (forcetk.Client === undefined) {
     forcetk.Client.prototype.ajax = function(path, callback, error, method, payload, retry) {
         var that = this;
         var url = this.instanceUrl + '/services/data' + path;
-        var app = document.getElementById('ChatterTemplateCtrl');
-		var scope = angular.element(app).scope();
-
+        
         alert("in ajax");
 
         return $j.ajax({
@@ -170,7 +168,7 @@ if (forcetk.Client === undefined) {
             cache: false,
             processData: false,
             data: payload,
-            success: $scope.$apply(function(){callback});,
+            success: callback,
             error: (!this.refreshToken || retry ) ? error : function(jqXHR, textStatus, errorThrown) {
                 if (jqXHR.status === 401) {
                     that.refreshAccessToken(function(oauthResponse) {
