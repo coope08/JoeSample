@@ -36,15 +36,7 @@
                 "from": "Courtney Dascenzo",
                 "profilePicUrl": "img/profile-placeholder.gif",
                 "title": "QA LOE Status",
-                "type": "Post",
-                "body": "changed QA LOE from 3.00 to 3.50",
-                "timestamp": "2013-03-24T15:12:44.817Z"
-            },
-            {
-                "from": "Courtney Dascenzo",
-                "profilePicUrl": "img/profile-placeholder.gif",
-                "title": "QA LOE Status",
-                "type": "Post",
+                "type": "TextPost",
                 "body": "changed QA LOE from a blank value to 3.00",
                 "timestamp": "2013-03-24T15:06:44.817Z"
             },
