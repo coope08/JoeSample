@@ -65,7 +65,7 @@
             <form ng-submit="postTextItem()">
             <div class="post-mode" ng-show="isChatterModeActive('Post')">
                 <div class="form-inline not-focussed-input" ng-show="postModeTextarea('non-focussed')">
-                    <textarea rows="1" placeholder="Write something..." ng-click="InputFocussed()"></textarea>
+                    <textarea rows="1" ng-model="postModeTextAreaValue" placeholder="Write something..." ng-click="InputFocussed()"></textarea>
 
                     <input class="btn btn-success pull-right" type="submit" value="Share">
                 </div>
