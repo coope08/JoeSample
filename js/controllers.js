@@ -204,9 +204,9 @@ function ChatterTemplateCtrl($scope) {
     		$scope.addFeedItem(newItem);
     	};
     	//digest everything so the model gets updated
-    	//alert("before apply");
-    	//$scope.$apply($scope.model);
-    	//alert("after apply in success");
+    	alert("before apply");
+    	$scope.$apply(function(){$scope.model});
+    	alert("after apply in success");
     };
     
     //called on unsuccessful retrieval of feed items and alerts the user
