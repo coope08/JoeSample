@@ -141,9 +141,8 @@ function ChatterTemplateCtrl($scope) {
     		//}*/
     		alert("calling ajax in getFeed");
     		//call forcetk client and request feed-items for a record
-    		$scope.$apply(function(){
-    			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedSuccessCallback, $scope.getFeedErrorCallback, "GET");
-    		});
+    		
+    			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.$apply(function(){$scope.getFeedSuccessCallback});, $scope.getFeedErrorCallback, "GET");
     		alert("out of ajax");	
     	}
     	else
