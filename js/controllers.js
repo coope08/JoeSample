@@ -187,7 +187,7 @@ function ChatterTemplateCtrl($scope) {
     	{
     		if (i==0)
     		{
-    			$scope.target.id = response.items[i].parent.id;
+    			//$scope.target.id = response.items[i].parent.id;
     			$scope.target.name = response.items[i].parent.name;
     			//$scope.target.iconUrl = response.items[i].parent.motif.smallIconUrl;
     		}
@@ -195,9 +195,10 @@ function ChatterTemplateCtrl($scope) {
     		var newItem = {};
     		newItem.from = response.items[i].actor.name;
     		newItem.profilePicUrl = response.items[i].actor.photo.smallPhotoUrl;
+    		newItem.type = response.items[i].type;
     		//newItem["body"] = response.items[i]["body"].text;
     		newItem.body = response.items[i].body.messageSegments[text];
-    		newItem.type = response.items[i].type;
+    		
     		
     		//detect the type of the Post
     		if(newItem.type == "LinkPost")
