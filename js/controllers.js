@@ -214,7 +214,12 @@ function ChatterTemplateCtrl($scope) {
     	//digest everything so the model gets updated
     	//alert("before apply");
     	//$scope.$apply();
-    	
+    	if (i == response.items.length)
+    	{
+    		$scope.target.id = response.items[0].parent.id;
+    	    $scope.target.name = response.items[0].parent.name;
+    	    $scope.target.iconUrl = response.items[0].parent.motif.smallIconUrl;
+    	}
     	
     	});
     	alert("after apply in success");
