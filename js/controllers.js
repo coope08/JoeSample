@@ -205,7 +205,7 @@ function ChatterTemplateCtrl($scope) {
     	};
     	//digest everything so the model gets updated
     	alert("before apply");
-    	$scope.$apply(function(){$scope.model});
+    	$scope.$apply();
     	alert("after apply in success");
     };
     
