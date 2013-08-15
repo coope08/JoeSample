@@ -189,7 +189,7 @@ function ChatterTemplateCtrl($scope) {
     		{
     			$scope.target.id = response.items[i].parent.id;
     			$scope.target.name = response.items[i].parent.name;
-    			$scope.target.iconUrl = response.items[i].parent.motif.smallIconUrl;
+    			//$scope.target.iconUrl = response.items[i].parent.motif.smallIconUrl;
     		}
     		
     		var newItem = {};
