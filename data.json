@@ -28,6 +28,7 @@
     "target": {
         "id": 1,
         "profileId": 1,
+	"type": "Story",
         "name": "S-96658",
         "iconUrl": "icon-user",
         "feedItems": [

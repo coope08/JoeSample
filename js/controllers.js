@@ -218,6 +218,7 @@ function ChatterTemplateCtrl($scope) {
     	{
     		$scope.target.id = response.items[0].parent.id;
     	    $scope.target.name = response.items[0].parent.name;
+    	    $scope.target.type = response.items[0].parent.type;
     	    $scope.target.iconUrl = response.items[0].parent.motif.smallIconUrl;
     	}
     	
