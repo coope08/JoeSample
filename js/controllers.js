@@ -143,7 +143,7 @@ function ChatterTemplateCtrl($scope) {
     		}
     		
     		//call forcetk client and request feed-items for a record
-    			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedItemsSuccessCallback, $scope.getFeedItemsErrorCallback, "GET");
+    			client.ajax('/v28.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedItemsSuccessCallback, $scope.getFeedItemsErrorCallback, "GET");
     		
     		alert("out of ajax");	
     	}
@@ -191,7 +191,7 @@ function ChatterTemplateCtrl($scope) {
     		newItem.profilePicUrl = response.items[i].actor.photo.smallPhotoUrl;
     		newItem.type = response.items[i].type;
     		//newItem["body"] = response.items[i]["body"].text;
-    		newItem.["body"] = response.items[i].body.messageSegments[0].text;
+    		newItem.body = response.items[i].body.messageSegments[0].text;
     		
     		
     		//detect the type of the Post
