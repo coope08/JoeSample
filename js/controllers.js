@@ -141,7 +141,7 @@ function ChatterTemplateCtrl($scope) {
     		//}*/
     		alert("calling ajax in getFeed");
     		//call forcetk client and request feed-items for a record
-    			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.$apply(function(){$scope.getFeedSuccessCallback});, $scope.getFeedErrorCallback, "GET");
+    			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedSuccessCallback, $scope.getFeedErrorCallback, "GET");
     		
     		alert("out of ajax");	
     	}
@@ -171,6 +171,7 @@ function ChatterTemplateCtrl($scope) {
     //called on successful retrieval of the feed
     $scope.getFeedSuccessCallback = function(response)
     {
+    $scope.$apply(function(){
     alert("in feedSuccess + length: "+response.items.length);
     	//set nextPageUrl for getting more feeds that are located on the next page
     	$scope.nextPageUrl = response.nextPageUrl;
@@ -205,6 +206,7 @@ function ChatterTemplateCtrl($scope) {
     	//digest everything so the model gets updated
     	//alert("before apply");
     	//$scope.$apply();
+    	});
     	alert("after apply in success");
     };
     
