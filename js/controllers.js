@@ -191,7 +191,7 @@ function ChatterTemplateCtrl($scope) {
     		newItem.profilePicUrl = response.items[i].actor.photo.smallPhotoUrl;
     		newItem.type = response.items[i].type;
     		//newItem["body"] = response.items[i]["body"].text;
-    		newItem.body = response.items[i].body.messageSegments[0].text;
+    		newItem.["body"] = response.items[i].body.messageSegments[0].text;
     		
     		
     		//detect the type of the Post
@@ -223,7 +223,6 @@ function ChatterTemplateCtrl($scope) {
     	}
     	
     	});
-    	alert("after apply in success");
     };
   
     
@@ -287,7 +286,6 @@ function ChatterTemplateCtrl($scope) {
     //post the post items to the chatter feed
     $scope.postTextItem = function()
     {
-    alert("in postText");
     	//data for the post item must contain body and body type
     	var data = {
     		"body": {
@@ -300,13 +298,11 @@ function ChatterTemplateCtrl($scope) {
     	
     	//update the link data object with tdata from the input fields
     	data.body.messageSegments[0].text = $scope.postModeTextAreaValue;
-    	alert(data.body.messageSegments[0].text);
+    	
     	//post has to contain some text or we alert the user
     	if ($scope.postModeTextAreaValue != null && $scope.postModeTextAreaValue != "")
     	{
-    		alert("in the if");
     		data = JSON.stringify(data);
-    		alert(data);
     		client.ajax('/v24.0/chatter/feeds/record/'+$scope.recordId+'/feed-items',$scope.postTextSuccess,$scope.errorCallback, "POST", data);
     		$scope.postingState = true;
     	}

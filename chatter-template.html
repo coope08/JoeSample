@@ -116,6 +116,7 @@
             </div>
 
             <!-- The "Link" based chatter mode -->
+            <form ng-submit="postLinkItem()">
             <div class="link-mode" ng-show="isChatterModeActive('Link')">
 
                 <div class="well anti-well link-inputs">
@@ -124,7 +125,7 @@
                             <h5>Link URL</h5>
                         </div>
                         <div class="span10">
-                            <input type="text" class="input-block-level" value="http://">
+                            <input type="text" ng-model="linkModeLinkUrl" class="input-block-level" value="http://">
                         </div>
                     </div>
                     <div class="row-fluid">
@@ -132,23 +133,24 @@
                             <h5>Link Name</h5>
                         </div>
                         <div class="span10">
-                            <input type="text" class="input-block-level">
+                            <input type="text" ng-model="linkModeLinkName" class="input-block-level">
                         </div>
                     </div>
                 </div>
 
                 <div class="link-description">
-                    <textarea rows="3" placeholder="Say something about this link..."></textarea>
+                    <textarea rows="3" ng-model="linkModeTextAreaValue" placeholder="Say something about this link..."></textarea>
                 </div>
 
                 <div class="well link-upload-footer">
                     <span class="pull-left">
                         To this story <a href=""><i class="icon-info-sign"></i></a>
                     </span>
-                    <button type="button" class="btn btn-success pull-right disabled">Share</button>
+                    <input class="btn btn-success pull-right disabled" type="submit" value="Share">
                 </div>
 
             </div>
+            </form>
 
             <!-- The "Poll" based chatter mode -->
             <div class="poll-mode" ng-show="isChatterModeActive('Poll')">
