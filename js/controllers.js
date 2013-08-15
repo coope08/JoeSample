@@ -215,12 +215,7 @@ function ChatterTemplateCtrl($scope) {
     	//alert("before apply");
     	//$scope.$apply();
     	
-    	if (i == (response.items.length - 1))
-    	{
-    		$scope.target.id = response.items[i].parent.id;
-    	    $scope.target.name = response.items[i].parent.name;
-    	    $scope.target.iconUrl = response.items[i].parent.motif.smallIconUrl;
-    	}
+    	
     	});
     	alert("after apply in success");
     };
