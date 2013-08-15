@@ -141,9 +141,6 @@ function ChatterTemplateCtrl($scope) {
     				$scope.alertMessage = "Loading feed items...";
     			});
     		}
-    		alert("calling ajax in getFeed");
-    		
-    		client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId,$scope.getFeedSuccessCallback, $scope.getFeedErrorCallback, "GET");
     		
     		//call forcetk client and request feed-items for a record
     			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedItemsSuccessCallback, $scope.getFeedItemsErrorCallback, "GET");
@@ -173,21 +170,7 @@ function ChatterTemplateCtrl($scope) {
     	}
     };
     
-    //called on successful retrieval of the feed
-    $scope.getFeedSuccessCallback = function(response)
-    {
-    alert(response.name);
-    $scope.$apply(function(){
-    alert("in feedSuccess");
-    		$scope.target.id = response.id;
-    		//$scope.target.profileId = response.profileId;
-            $scope.target.name = response.name;
-        	$scope.target.iconUrl = response.motif.mediumIconUrl;
-    	});
-    	alert("after apply in successFeed");
-    };
-  
-    
+   
     //called on successful retrieval of the feed items
     $scope.getFeedItemsSuccessCallback = function(response)
     {
@@ -224,6 +207,13 @@ function ChatterTemplateCtrl($scope) {
     		//add it to the model
     		//$scope.addFeedItem(newItem);
     		$scope.target.feedItems[i] = newItem;
+    		
+    		if (i==0)
+    		{
+    			$scope.target.id = response.items[i].parent.id;
+    			$scope.target.name = response.items[i].parent.name;
+    			$scope.target.iconUrl = response.items[i].parent.motif.smallIconUrl;
+    		}
     	};
     	//digest everything so the model gets updated
     	//alert("before apply");
@@ -232,12 +222,6 @@ function ChatterTemplateCtrl($scope) {
     	alert("after apply in success");
     };
   
-    //called on unsuccessful retrieval of feed and alerts the user
-    $scope.getFeedErrorCallback = function(response)
-    {
-    	alert("Something went wrong.");
-    	console.log(response);
-    };
     
     //called on unsuccessful retrieval of feed items and alerts the user
     $scope.getFeedItemsErrorCallback = function(response)
