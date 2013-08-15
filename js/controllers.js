@@ -142,8 +142,11 @@ function ChatterTemplateCtrl($scope) {
     			});
     		}
     		alert("calling ajax in getFeed");
+    		
+    		client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId,$scope.getFeedSuccessCallback, $scope.getFeedErrorCallback, "GET");
+    		
     		//call forcetk client and request feed-items for a record
-    			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedSuccessCallback, $scope.getFeedErrorCallback, "GET");
+    			client.ajax('/v24.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedItemsSuccessCallback, $scope.getFeedItemsErrorCallback, "GET");
     		
     		alert("out of ajax");	
     	}
@@ -175,6 +178,20 @@ function ChatterTemplateCtrl($scope) {
     {
     $scope.$apply(function(){
     alert("in feedSuccess + length: "+response.items.length);
+    		$scope.target.id = response.id;
+    		//$scope.target.profileId = response.profileId;
+            $scope.target.name = response.name;
+        	$scope.target.iconUrl = response.motif.mediumIconUrl;
+    	});
+    	alert("after apply in successFeed");
+    };
+  
+    
+    //called on successful retrieval of the feed items
+    $scope.getFeedItemsSuccessCallback = function(response)
+    {
+    $scope.$apply(function(){
+    alert("in feedSuccess + length: "+response.items.length);
     	//set nextPageUrl for getting more feeds that are located on the next page
     	$scope.nextPageUrl = response.nextPageUrl;
     	
@@ -188,7 +205,7 @@ function ChatterTemplateCtrl($scope) {
     		newItem.from = response.items[i].actor.name;
     		newItem.profilePicUrl = response.items[i].actor.photo.smallPhotoUrl;
     		//newItem["body"] = response.items[i]["body"].text;
-    		newItem.body = response.items[i].body.text;
+    		newItem.body = response.items[i].body.messageSegment.text;
     		newItem.type = response.items[i].type;
     		
     		//detect the type of the Post
@@ -213,9 +230,16 @@ function ChatterTemplateCtrl($scope) {
     	});
     	alert("after apply in success");
     };
+  
+    //called on unsuccessful retrieval of feed and alerts the user
+    $scope.getFeedErrorCallback = function(response)
+    {
+    	alert("Something went wrong.");
+    	console.log(response);
+    };
     
     //called on unsuccessful retrieval of feed items and alerts the user
-    $scope.getFeedErrorCallback = function(response)
+    $scope.getFeedItemsErrorCallback = function(response)
     {
     	alert("Something went wrong.");
     	console.log(response);
