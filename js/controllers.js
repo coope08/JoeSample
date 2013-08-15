@@ -176,8 +176,9 @@ function ChatterTemplateCtrl($scope) {
     //called on successful retrieval of the feed
     $scope.getFeedSuccessCallback = function(response)
     {
+    alert(response.name);
     $scope.$apply(function(){
-    alert("in feedSuccess + length: "+response.items.length);
+    alert("in feedSuccess");
     		$scope.target.id = response.id;
     		//$scope.target.profileId = response.profileId;
             $scope.target.name = response.name;
@@ -205,7 +206,7 @@ function ChatterTemplateCtrl($scope) {
     		newItem.from = response.items[i].actor.name;
     		newItem.profilePicUrl = response.items[i].actor.photo.smallPhotoUrl;
     		//newItem["body"] = response.items[i]["body"].text;
-    		newItem.body = response.items[i].body.messageSegments["text"];
+    		newItem.body = response.items[i].body.text;
     		newItem.type = response.items[i].type;
     		
     		//detect the type of the Post
