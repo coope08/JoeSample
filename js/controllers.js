@@ -192,6 +192,7 @@ function ChatterTemplateCtrl($scope) {
     		newItem.type = response.items[i].type;
     		//newItem["body"] = response.items[i]["body"].text;
     		newItem.body = response.items[i].body.text;
+    		alert(newItem.body);
     		
     		
     		//detect the type of the Post
