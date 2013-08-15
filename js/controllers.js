@@ -201,7 +201,8 @@ function ChatterTemplateCtrl($scope) {
     		}
     		newItem.timestamp = response.items[i].createdDate;
     		//add it to the model
-    		$scope.addFeedItem(newItem);
+    		//$scope.addFeedItem(newItem);
+    		$scope.target.feedItems[i] = newItem;
     	};
     	//digest everything so the model gets updated
     	//alert("before apply");
