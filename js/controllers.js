@@ -202,7 +202,7 @@ function ChatterTemplateCtrl($scope) {
     	};
     	//digest everything so the model gets updated
     	//alert("before apply");
-    	//$scope.$apply('$scope.alertMessage = "Loading feed items..."');
+    	$scope.$apply($scope.model);
     	//alert("after apply in success");
     };
     
