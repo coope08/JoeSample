@@ -206,7 +206,7 @@ function ChatterTemplateCtrl($scope) {
     		newItem.from = response.items[i].actor.name;
     		newItem.profilePicUrl = response.items[i].actor.photo.smallPhotoUrl;
     		//newItem["body"] = response.items[i]["body"].text;
-    		newItem.body = response.items[i].body.text;
+    		newItem.body = response.items[i].body.messageSegments["text"];
     		newItem.type = response.items[i].type;
     		
     		//detect the type of the Post
