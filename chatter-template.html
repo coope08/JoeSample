@@ -216,12 +216,12 @@
                 </p>
 
                 <!-- File link, in case of a file -->
-                <p class="description" ng-show="feedItem.type == 'File'">
+                <p class="description" ng-show="feedItem.type == 'FilePost'">
                     <span> uploaded <a ng-href="{{feedItem.fileUrl}}">file</a></span>
                 </p>
     
                 <!-- Link Url, in case of a link -->
-                <p class="description" ng-show="feedItem.type == 'Link'">
+                <p class="description" ng-show="feedItem.type == 'LinkPost'">
                     <span> suggested link : <a ng-href="{{feedItem.linkUrl}}">{{feedItem.linkName}}</a></span>
                 </p>
                  
