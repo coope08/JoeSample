@@ -213,22 +213,18 @@
                         {{feedItem.body}}
                     </span>
 
-                    <!-- File link, in case of a file -->
-                    <span ng-show="feedItem.type == 'File'">
-                        uploaded a <a ng-href="{{feedItem.fileUrl}}">file</a>
-                    </span>
-
-                    <!-- Link Url, in case of a link -->
-                    <span ng-show="feedItem.type == 'Link'">
-                        suggested a link : <a ng-href="{{feedItem.linkUrl}}">{{feedItem.linkName}}</a>
-                    </span>
-
                 </p>
 
-                <!-- Body of the feed, in case of a file or link -->
-                <p class="description" ng-show="feedItem.type == 'File' || feedItem.type == 'Link'">
-                    <span class="text-info">Description:</span> {{feedItem.body}}
+                <!-- File link, in case of a file -->
+                <p class="description" ng-show="feedItem.type == 'File'">
+                    <span> uploaded <a ng-href="{{feedItem.fileUrl}}">file</a></span>
                 </p>
+    
+                <!-- Link Url, in case of a link -->
+                <p class="description" ng-show="feedItem.type == 'Link'">
+                    <span> suggested link : <a ng-href="{{feedItem.linkUrl}}">{{feedItem.linkName}}</a></span>
+                </p>
+                 
 
                 <!-- The post tools -->
                 <p class="post-tools">

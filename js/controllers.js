@@ -134,7 +134,7 @@ function ChatterTemplateCtrl($scope) {
     	//check for login
     	if (client.sessionId != null)
     	{
-    	alert("in sessionId");
+  
     		if (addPosts != true)
     		{
     			$scope.$apply(function(){
@@ -144,8 +144,7 @@ function ChatterTemplateCtrl($scope) {
     		
     		//call forcetk client and request feed-items for a record
     			client.ajax('/v28.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedItemsSuccessCallback, $scope.getFeedItemsErrorCallback, "GET");
-    		
-    		alert("out of ajax");	
+    			
     	}
     	else
     	{
