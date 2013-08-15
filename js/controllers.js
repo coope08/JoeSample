@@ -185,10 +185,7 @@ function ChatterTemplateCtrl($scope) {
     	//loop through all the feed items and add them to the feedItems model
     	for (var i = 0; i < response.items.length; i++)
     	{
-    		
-    	    $scope.target.id = response.items[i].parent.id;
-    	    $scope.target.name = response.items[i].parent.name;
-    	    $scope.target.iconUrl = response.items[i].parent.motif.smallIconUrl; 
+    		 
     		var newItem = {};
     		newItem.from = response.items[i].actor.name;
     		newItem.profilePicUrl = response.items[i].actor.photo.smallPhotoUrl;
@@ -217,6 +214,13 @@ function ChatterTemplateCtrl($scope) {
     	//digest everything so the model gets updated
     	//alert("before apply");
     	//$scope.$apply();
+    	
+    	if (i == (response.items.length - 1))
+    	{
+    		$scope.target.id = response.items[i].parent.id;
+    	    $scope.target.name = response.items[i].parent.name;
+    	    $scope.target.iconUrl = response.items[i].parent.motif.smallIconUrl;
+    	}
     	});
     	alert("after apply in success");
     };
