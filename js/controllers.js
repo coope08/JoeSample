@@ -130,6 +130,7 @@ function ChatterTemplateCtrl($scope) {
     $scope.getFeed = function(addPosts)
     {
     	$scope.target.id = $scope.recordId;
+    	$scope.clearFeed();
     	//check for login
     	if (client.sessionId != null)
     	{
@@ -186,7 +187,8 @@ function ChatterTemplateCtrl($scope) {
     		var newItem = {};
     		newItem.from = response.items[i].actor.name;
     		newItem.profilePicUrl = response.items[i].actor.photo.smallPhotoUrl;
-    		newItem["body"] = response.items[i]["body"].text;
+    		//newItem["body"] = response.items[i]["body"].text;
+    		newItem.body = response.items[i].body.text;
     		newItem.type = response.items[i].type;
     		
     		//detect the type of the Post
