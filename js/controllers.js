@@ -273,7 +273,7 @@ function ChatterTemplateCtrl($scope) {
     		//turn the data into a string so we can send it over POST method
     		data = JSON.stringify(data);
     		//use forcetk.js ajax method to post the data
-    		client.ajax('/v27.0/chatter/feeds/record/'+$scope.recordId+'/feed-items', $scope.postLinkSuccess, $scope.errorCallback, "POST");
+    		client.ajax('/v27.0/chatter/feeds/record/'+$scope.recordId+'/feed-items', $scope.postLinkSuccess, $scope.errorCallback, "POST", data);
     		$scope.postingState = true;
     	}
     	else
@@ -304,8 +304,10 @@ function ChatterTemplateCtrl($scope) {
     	//post has to contain some text or we alert the user
     	if ($scope.postModeTextAreaValue != null && $scope.postModeTextAreaValue != "")
     	{
+    		alert("in the if");
     		data = JSON.stringify(data);
-    		client.ajax('/v24.0/chatter/feeds/record/'+$scope.recordId+'/feed-items',$scope.postTextSuccess,$scope.errorCallback, "POST");
+    		alert(data);
+    		client.ajax('/v24.0/chatter/feeds/record/'+$scope.recordId+'/feed-items',$scope.postTextSuccess,$scope.errorCallback, "POST", data);
     		$scope.postingState = true;
     	}
     	else
@@ -329,7 +331,7 @@ function ChatterTemplateCtrl($scope) {
     $scope.postTextSuccess = function(response)
     {
     	$scope.clearFeed();
-    	$scope.getFeed(true);
+    	$scope.getFeed(false);
     	$scope.postModeTextAreaValue = "";
     	$scope.postingState = false;
     };
