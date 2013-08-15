@@ -185,13 +185,10 @@ function ChatterTemplateCtrl($scope) {
     	//loop through all the feed items and add them to the feedItems model
     	for (var i = 0; i < response.items.length; i++)
     	{
-    		if (i==0)
-    		{
-    			//$scope.target.id = response.items[i].parent.id;
-    			$scope.target.name = response.items[i].parent.name;
-    			//$scope.target.iconUrl = response.items[i].parent.motif.smallIconUrl;
-    		}
     		
+    	    $scope.target.id = response.items[i].parent.id;
+    	    $scope.target.name = response.items[i].parent.name;
+    	    $scope.target.iconUrl = response.items[i].parent.motif.smallIconUrl; 
     		var newItem = {};
     		newItem.from = response.items[i].actor.name;
     		newItem.profilePicUrl = response.items[i].actor.photo.smallPhotoUrl;
