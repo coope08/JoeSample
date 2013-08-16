@@ -83,6 +83,7 @@
             </form>
 
             <!-- The "File" based chatter mode -->
+            <form ng-submit="postFileItem()">
             <div class="file-mode" ng-show="isChatterModeActive('File')">
                 <div class="well anti-well file-upload-mode-group">
                     <div class="row-fluid" ng-show="showFileUploadModes">
@@ -98,14 +99,15 @@
                     </div>
 
                     <div ng-show="!showFileUploadModes">
-                        <button class="btn btn-mini" type="button">Chose File</button>
+                    	<input class="btn btn-mini" type="file" value="Choose File">
+                        <!-- <button class="btn btn-mini" type="button">Chose File</button> -->
                         No file chosen
                         <button type="button" class="close" ng-click="showFileUploadModes = true">&times;</button>
                         <h6 class="muted">Maximum file size is 2GB</h6>
                     </div>
                 </div>
                 <div class="file-description">
-                    <textarea rows="3" placeholder="Say something about this file..."></textarea>
+                    <textarea rows="3" ng-model="fileModeTextAreaValue" placeholder="Say something about this file..."></textarea>
                 </div>
                 <div class="well file-upload-footer">
                     <span class="pull-left">
@@ -114,6 +116,7 @@
                     <button type="button" class="btn btn-success pull-right disabled">Share</button>
                 </div>
             </div>
+            </form>
 
             <!-- The "Link" based chatter mode -->
             <form ng-submit="postLinkItem()">
