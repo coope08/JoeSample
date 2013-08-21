@@ -25,6 +25,13 @@
         "allowComments": false,
         "allowLikes": false
     },
+    "polls": {
+	"choices": [
+	    {
+		"answer": ""
+	    }      
+		]
+    },
     "target": {
         "id": 1,
         "profileId": 1,
@@ -44,7 +51,7 @@
                 "from": "Courtney Dascenzo",
                 "profilePicUrl": "img/profile-placeholder.gif",
                 "title": "QA LOE Status",
-                "type": "File",
+                "type": "FilePost",
                 "fileUrl": "sampleFile.pdf",
                 "body": "Just a sample file",
                 "timestamp": "2013-03-23T18:22:01.817Z"
@@ -53,9 +60,9 @@
                 "from": "Courtney Dascenzo",
                 "profilePicUrl": "img/profile-placeholder.gif",
                 "title": "QA LOE Status",
-                "type": "Link",
-                "linkName": "Cloudspokes Chatter Directive Challenge",
-                "linkUrl": "http://www.cloudspokes.com/challenges/2125",
+                "type": "LinkPost",
+                "linkName": "salesforce.com Homepage",
+                "linkUrl": "http://www.salesforce.com",
                 "body": "Just a sample link",
                 "timestamp": "2013-03-22T08:37:19.817Z"
             }
