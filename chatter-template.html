@@ -162,6 +162,17 @@
                     <textarea rows="3" ng-model="pollModeTextAreaValue" placeholder="What is your question?"></textarea>
                 </div>
                 <div class="well anti-well poll-inputs">
+                	<div class="row-fluid">
+                		<ul class="unstyled">
+        					<li ng-repeat="choice in polls.choices">
+          						<input type="checkbox" ng-model="polls.choices.remove">
+          						<span class="poll-{{polls.choices.remove}}">{{polls.choices.text}}</span>
+        					</li>
+        					 [ <a href="" ng-click="archive()">remove</a> ]
+        				</ul>	
+                	</div>
+                </div>
+                <div class="well anti-well poll-inputs">
                     <div class="row-fluid">
                         <div class="span2">
                             <h5>Choice</h5>
