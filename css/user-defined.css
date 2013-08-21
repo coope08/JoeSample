@@ -165,7 +165,8 @@
     border-bottom-right-radius: 0;
 }
 
-.link-inputs {
+.link-inputs,
+.poll-inputs {
     margin-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
