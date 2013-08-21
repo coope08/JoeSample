@@ -83,6 +83,7 @@
 /*Width of the text area will be 100% of the content width when it is focussed*/
 .focussed-input textarea,
 .file-mode textarea,
+.poll-mode textarea,
 .link-mode textarea {
     width: 100%;
     resize: none;
@@ -103,6 +104,7 @@
 /*On focus of the text area, remove the styling provided by twitter bootstrap*/
 .focussed-input textarea:focus,
 .file-mode textarea:focus,
+.poll-mode textarea:focus,
 .link-mode textarea:focus {
     border-color: #E3E3E3;
     -webkit-box-shadow: none;
@@ -113,6 +115,7 @@
 /*Adjust the styling of the container below the text area on focus*/
 .focussed-input .well,
 .file-upload-footer.well,
+.poll-upload-footer.well,
 .link-upload-footer.well {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
@@ -122,6 +125,7 @@
 
 /*The info sign icon below the text area when it is focussed*/
 .focussed-input .well .icon-info-sign,
+.poll-mode .well .icon-info-sign,
 .file-mode .well .icon-info-sign,
 .link-mode .well .icon-info-sign {
     margin-left: 15px;
@@ -130,6 +134,7 @@
 
 .focussed-input .well .icon-info-sign:hover,
 .file-mode .well .icon-info-sign:hover,
+.poll-mode .well .icon-info-sign:hover,
 .link-mode .well .icon-info-sign:hover {
     opacity: 1;
     cursor: pointer;
