@@ -156,11 +156,32 @@
             </form>
 
             <!-- The "Poll" based chatter mode -->
+            <form ng-submit="postLinkItem()">
             <div class="poll-mode" ng-show="isChatterModeActive('Poll')">
+            	<div class="link-description">
+                    <textarea rows="3" ng-model="pollModeTextAreaValue" placeholder="What is your question?"></textarea>
+                </div>
+                <div class="well anti-well link-inputs">
+                    <div class="row-fluid">
+                        <div class="span2">
+                            <h5>Choice</h5>
+                        </div>
+                        <div class="span10">
+                            <input type="text" ng-model="linkModePollChoice" class="input-block-level" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="well link-upload-footer">
+                    <span class="pull-left">
+                        To this story <a href=""><i class="icon-info-sign"></i></a>
+                    </span>
+                    <input class="btn btn-success pull-right" type="submit" value="add">
+                </div>
                 <div class="alert alert-error">
                     No information on the structure of this chatter mode provided. Nothing to show.
                 </div>
             </div>
+            </form>
 
             <!-- The seperator -->
             <hr ng-show="showFeeds">
