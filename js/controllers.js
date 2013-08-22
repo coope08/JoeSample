@@ -192,7 +192,7 @@ alert($scope.polls.choices.length);
   	{
   		alert("before add");
   		
-    	$scope.polls.choices.push({text:$scope.choiceText, remove:false});
+    	$scope.polls.choices.push({"text":$scope.choiceText, "remove":false});
     	alert("after add: "+$scope.polls.choices.length);
     	$scope.choiceText = "";
   	};
