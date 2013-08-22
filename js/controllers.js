@@ -120,24 +120,24 @@ function ChatterTemplateCtrl($scope) {
     });
     
     //Keep a watch over the polls attribute
-    $scope.$watch('choices', function() {
+    $scope.$watch('polls', function() {
 
-alert($scope.choices.length);
+alert($scope.polls.choices.length);
         //Return if polls choices is still not populated
-        if ($scope.choices === undefined) {
+        if ($scope.polls.choices === undefined) {
             return;
         }
 
         //Returns the number of choices in a poll
         $scope.choiceCount = function() {
-            if ($scope.choices !== undefined) {
-                return $scope.choices.length;
+            if ($scope.polls.choices !== undefined) {
+                return $scope.polls.choices.length;
             }
         };
 
         //Determine if the current choice is the last choice in the poll
         $scope.isLastChoice = function(choiceIndex) {
-            return choiceIndex !== ($scope.choices.length - 1);
+            return choiceIndex !== ($scope.polls.choices.length - 1);
         };
     }, true);
     
@@ -179,13 +179,11 @@ alert($scope.choices.length);
     //remove a choice from the poll
     $scope.removeChoices = function() 
     {
-    	//var oldChoices = $scope.polls.choices;
-    	//$scope.polls.choices = [];
-    	
-    	var oldChoices = $scope.choices;
+    	var oldChoices = $scope.polls.choices;
+    	$scope.polls.choices = [];
     	angular.forEach(oldChoices, function(choice) {
         	if (!choice.remove) 
-        		$scope.choices.push(choice);
+        		$scope.polls.choices.push(choice);
     	});
   	};
   	
@@ -193,9 +191,9 @@ alert($scope.choices.length);
   	$scope.addPollChoice = function() 
   	{
   		alert("before add");
-    	//$scope.polls.choices.push({text:$scope.choiceText, remove:false});
-    	$scope.choices.push({text:$scope.choiceText, remove:false});
-    	alert("after add: "+$scope.choices.length);
+  		
+    	$scope.polls.choices.push({text:$scope.choiceText, remove:false});
+    	alert("after add: "+$scope.polls.choices.length);
     	$scope.choiceText = "";
   	};
     

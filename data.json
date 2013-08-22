@@ -25,13 +25,14 @@
         "allowComments": false,
         "allowLikes": false
     },
-    "choices": [
+    "polls":{
+	"choices": [
 	    {
 		"text": "",
 		"remove": false
 	    }      
 		]
-    ,
+    },
     "target": {
         "id": 1,
         "profileId": 1,
