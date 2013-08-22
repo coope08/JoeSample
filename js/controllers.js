@@ -122,6 +122,7 @@ function ChatterTemplateCtrl($scope) {
     //Keep a watch over the polls attribute
     $scope.$watch('polls', function() {
 
+alert($scope.polls.choices.length);
         //Return if polls is still not populated
         if ($scope.polls === undefined) {
             return;
@@ -130,7 +131,6 @@ function ChatterTemplateCtrl($scope) {
         //Returns the number of choices in a poll
         $scope.choiceCount = function() {
             if ($scope.polls.choices !== undefined) {
-            	alert($scope.polls.choices.length);
                 return $scope.polls.choices.length;
             }
         };
@@ -191,6 +191,7 @@ function ChatterTemplateCtrl($scope) {
   	$scope.addPollChoice = function() 
   	{
     	$scope.polls.choices.push({text:$scope.choiceText, remove:false});
+    	alert("in add: "+$scope.polls.choices.length);
     	$scope.choiceText = '';
   	};
     
