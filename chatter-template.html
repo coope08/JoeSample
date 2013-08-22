@@ -157,7 +157,7 @@
 
             <!-- The "Poll" based chatter mode -->
             <div class="poll-mode" ng-show="isChatterModeActive('Poll')">
-            	<form ng-submit="postChoiceItem()">
+            	<form ng-submit="addPollChoice()">
             	<div class="well anti-well poll-inputs">
             	  <div class="row-fluid">
                     <textarea rows="3" ng-model="pollModeTextAreaValue" placeholder="What is your question?"></textarea>
@@ -182,7 +182,7 @@
                             <h5>Choice</h5>
                         </div>
                         <div class="span8">
-                            <input type="text" ng-model="linkModePollChoice" class="input-block-level" value="">
+                            <input type="text" ng-model="choiceText" class="input-block-level" value="">
                         </div>
                         <div class="span2">
                         <input class="btn btn-success pull-right" type="submit" value="add">

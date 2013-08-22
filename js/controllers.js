@@ -176,7 +176,7 @@ function ChatterTemplateCtrl($scope) {
     };
     
     //remove a choice from the poll
-    $scope.archive = function() 
+    $scope.removeChoices = function() 
     {
     	var oldChoices = $scope.polls.choices;
     	$scope.polls.choices = [];
@@ -184,6 +184,13 @@ function ChatterTemplateCtrl($scope) {
         	if (!choices.remove) 
         		$scope.polls.choices.push(choice);
     	});
+  	};
+  	
+  	//add a choice to a poll
+  	$scope.addPollChoice = function() 
+  	{
+    	$scope.polls.choice.push({text:$scope.choiceText, remove:false});
+    	$scope.choiceText = '';
   	};
     
     //get the nextPageURL parameter from the scope and retrieve additional feed items
@@ -241,8 +248,6 @@ function ChatterTemplateCtrl($scope) {
     		}
     		newItem.timestamp = response.items[i].createdDate;
     		//add it to the model
-    		//$scope.addFeedItem(newItem);
-    		//$scope.target.feedItems[i] = newItem;
     		$scope.target.feedItems.push(newItem);
     		
     	};
