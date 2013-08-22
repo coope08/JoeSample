@@ -17,6 +17,8 @@ function HomePageCtrl($scope, $http) {
 
 function ChatterTemplateCtrl($scope) {
 
+	$scope.choices = [];
+
     //Keep a watch over the settings attribute
     $scope.$watch('settings', function () {
 
@@ -120,9 +122,9 @@ function ChatterTemplateCtrl($scope) {
     });
     
     //Keep a watch over the polls attribute
-    $scope.$watch('polls', function() {
+    $scope.$watch('choices', function() {
 
-alert($scope.polls.choices.length);
+alert($scope.choices.length);
         //Return if polls is still not populated
         if ($scope.polls === undefined) {
             return;
@@ -130,14 +132,14 @@ alert($scope.polls.choices.length);
 
         //Returns the number of choices in a poll
         $scope.choiceCount = function() {
-            if ($scope.polls.choices !== undefined) {
-                return $scope.polls.choices.length;
+            if ($scope.choices !== undefined) {
+                return $scope.choices.length;
             }
         };
 
         //Determine if the current choice is the last choice in the poll
         $scope.isLastChoice = function(choiceIndex) {
-            return choiceIndex !== ($scope.polls.choices.length - 1);
+            return choiceIndex !== ($scope.choices.length - 1);
         };
     }, true);
     
@@ -179,20 +181,23 @@ alert($scope.polls.choices.length);
     //remove a choice from the poll
     $scope.removeChoices = function() 
     {
-    	var oldChoices = $scope.polls.choices;
-    	$scope.polls.choices = [];
+    	//var oldChoices = $scope.polls.choices;
+    	//$scope.polls.choices = [];
+    	
+    	var oldChoices = $scope.choices;
     	angular.forEach(oldChoices, function(choice) {
-        	if (!choices.remove) 
-        		$scope.polls.choices.push(choice);
+        	if (!choice.remove) 
+        		$scope.choices.push(choice);
     	});
   	};
   	
   	//add a choice to a poll
   	$scope.addPollChoice = function() 
   	{
-    	$scope.polls.choices.push({text:$scope.choiceText, remove:false});
+    	//$scope.polls.choices.push({text:$scope.choiceText, remove:false});
+    	$scope.choices.push({text:$scope.choiceText, remove:false});
     	alert("in add: "+$scope.polls.choices.length);
-    	$scope.choiceText = '';
+    	$scope.choiceText = "";
   	};
     
     //get the nextPageURL parameter from the scope and retrieve additional feed items
