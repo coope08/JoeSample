@@ -126,7 +126,7 @@ function ChatterTemplateCtrl($scope) {
 
 alert($scope.choices.length);
         //Return if polls is still not populated
-        if ($scope.polls === undefined) {
+        if ($scope.choices === undefined) {
             return;
         }
 
@@ -194,9 +194,10 @@ alert($scope.choices.length);
   	//add a choice to a poll
   	$scope.addPollChoice = function() 
   	{
+  		alert("before add");
     	//$scope.polls.choices.push({text:$scope.choiceText, remove:false});
     	$scope.choices.push({text:$scope.choiceText, remove:false});
-    	alert("in add: "+$scope.polls.choices.length);
+    	alert("after add: "+$scope.choices.length);
     	$scope.choiceText = "";
   	};
     
