@@ -189,7 +189,7 @@ function ChatterTemplateCtrl($scope) {
   	//add a choice to a poll
   	$scope.addPollChoice = function() 
   	{
-    	$scope.polls.choice.push({text:$scope.choiceText, remove:false});
+    	$scope.polls.choices.push({text:$scope.choiceText, remove:false});
     	$scope.choiceText = '';
   	};
     
