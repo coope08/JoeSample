@@ -139,7 +139,7 @@ function ChatterTemplateCtrl($scope) {
         $scope.isLastChoice = function(choiceIndex) {
             return choiceIndex !== ($scope.polls.choices.length - 1);
         };
-    });
+    }, true);
     
     //used to repopulate the feed
     $scope.clearFeed = function()
@@ -153,7 +153,7 @@ function ChatterTemplateCtrl($scope) {
     {
       //$scope.$apply(function(){
     	 $scope.target.id = $scope.recordId;
-    	 $scope.clearFeed();
+    	 $scope.target.feedItems = [];
     	 //check for login
     	 if (client.sessionId != null)
     	 {
