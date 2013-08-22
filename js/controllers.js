@@ -189,6 +189,7 @@ function ChatterTemplateCtrl($scope) {
   	//add a choice to a poll
   	$scope.addPollChoice = function() 
   	{
+  		alert("In addPoll and: "+$scope.choiceText);
     	$scope.polls.choices.push({text:$scope.choiceText, remove:false});
     	$scope.choiceText = '';
   	};
@@ -214,6 +215,7 @@ function ChatterTemplateCtrl($scope) {
     //called on successful retrieval of the feed items
     $scope.getFeedItemsSuccessCallback = function(response)
     {
+    //digest everything so the model gets updated
     $scope.$apply(function(){
     
     	//set nextPageUrl for getting more feeds that are located on the next page
@@ -232,7 +234,6 @@ function ChatterTemplateCtrl($scope) {
     		newItem.type = response.items[i].type;
     		//newItem["body"] = response.items[i]["body"].text;
     		newItem.body = response.items[i].body.text;
-    		alert(newItem.type+ ": "+newItem.body);
     		
     		
     		//detect the type of the Post
@@ -251,9 +252,7 @@ function ChatterTemplateCtrl($scope) {
     		$scope.target.feedItems.push(newItem);
     		
     	};
-    	//digest everything so the model gets updated
-    	//alert("before apply");
-    	//$scope.$apply();
+    	
     	if (i == response.items.length)
     	{
     		$scope.target.id = response.items[0].parent.id;
@@ -451,6 +450,5 @@ function ChatterTemplateCtrl($scope) {
 function logginCallback()
 {
 	angular.element($('#mainTest')).scope().recordId = "001i000000KoIVU";
-	alert(angular.element($('#mainTest')).scope().recordId);
 	angular.element($('#mainTest')).scope().getFeed(false);
 }
