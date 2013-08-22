@@ -150,7 +150,7 @@ function ChatterTemplateCtrl($scope) {
     //RecordID  is passed through the url. 
     $scope.getFeed = function(addPosts)
     {
-      $scope.$apply(function(){
+      //$scope.$apply(function(){
     	 $scope.target.id = $scope.recordId;
     	 $scope.clearFeed();
     	 //check for login
@@ -172,7 +172,7 @@ function ChatterTemplateCtrl($scope) {
     	 {
     		alert("You are not logged in.");
     	 }
-      });	 
+      //});	 
     };
     
     //get the nextPageURL parameter from the scope and retrieve additional feed items
