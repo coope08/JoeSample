@@ -130,6 +130,7 @@ function ChatterTemplateCtrl($scope) {
         //Returns the number of choices in a poll
         $scope.choiceCount = function() {
             if ($scope.polls.choices !== undefined) {
+            	alert($scope.polls.choices.length);
                 return $scope.polls.choices.length;
             }
         };
@@ -189,7 +190,6 @@ function ChatterTemplateCtrl($scope) {
   	//add a choice to a poll
   	$scope.addPollChoice = function() 
   	{
-  		alert("In addPoll and: "+$scope.choiceText);
     	$scope.polls.choices.push({text:$scope.choiceText, remove:false});
     	$scope.choiceText = '';
   	};
