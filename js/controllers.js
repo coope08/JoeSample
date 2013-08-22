@@ -119,6 +119,27 @@ function ChatterTemplateCtrl($scope) {
         //Nothing to do as of now
     });
     
+    //Keep a watch over the polls attribute
+    $scope.$watch('polls', function() {
+
+        //Return if polls is still not populated
+        if ($scope.polls === undefined) {
+            return;
+        }
+
+        //Returns the number of choices in a poll
+        $scope.choiceCount = function() {
+            if ($scope.polls.choices !== undefined) {
+                return $scope.polls.choices.length;
+            }
+        };
+
+        //Determine if the current choice is the last choice in the poll
+        $scope.isLastChoice = function(choiceIndex) {
+            return choiceIndex !== ($scope.polls.choices.length - 1);
+        };
+    });
+    
     //used to repopulate the feed
     $scope.clearFeed = function()
     {
@@ -129,27 +150,29 @@ function ChatterTemplateCtrl($scope) {
     //RecordID  is passed through the url. 
     $scope.getFeed = function(addPosts)
     {
-    	$scope.target.id = $scope.recordId;
-    	$scope.clearFeed();
-    	//check for login
-    	if (client.sessionId != null)
-    	{
+      $scope.$apply(function(){
+    	 $scope.target.id = $scope.recordId;
+    	 $scope.clearFeed();
+    	 //check for login
+    	 if (client.sessionId != null)
+    	 {
   
     		if (addPosts != true)
     		{
-    			$scope.$apply(function(){
-    				$scope.alertMessage = "Loading feed items...";
-    			});
+    			
+    			$scope.alertMessage = "Loading feed items...";
+    			
     		}
     		
     		//call forcetk client and request feed-items for a record
     			client.ajax('/v28.0/chatter/feeds/record/'+ $scope.recordId + '/feed-items',$scope.getFeedItemsSuccessCallback, $scope.getFeedItemsErrorCallback, "GET");
     			
-    	}
-    	else
-    	{
+    	 }
+    	 else
+    	 {
     		alert("You are not logged in.");
-    	}
+    	 }
+      });	 
     };
     
     //get the nextPageURL parameter from the scope and retrieve additional feed items
