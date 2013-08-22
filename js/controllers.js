@@ -17,8 +17,6 @@ function HomePageCtrl($scope, $http) {
 
 function ChatterTemplateCtrl($scope) {
 
-	$scope.choices = [];
-
     //Keep a watch over the settings attribute
     $scope.$watch('settings', function () {
 
@@ -125,7 +123,7 @@ function ChatterTemplateCtrl($scope) {
     $scope.$watch('choices', function() {
 
 alert($scope.choices.length);
-        //Return if polls is still not populated
+        //Return if polls choices is still not populated
         if ($scope.choices === undefined) {
             return;
         }
