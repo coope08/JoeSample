@@ -125,26 +125,26 @@ function ChatterTemplateCtrl($scope) {
     });
     
     //Keep a watch over the polls attribute
-    $scope.$watch('polls', function() {
+    $scope.$watch('choices', function() {
 
-alert($scope.polls.pollChoices.length);
+alert("in watch");
         //Return if polls choices is still not populated
-        if ($scope.polls.pollChoices === undefined) {
+        if ($scope.choices === undefined) {
             return;
         }
 
         //Returns the number of choices in a poll
         $scope.choiceCount = function() {
-            if ($scope.polls.pollChoices !== undefined) {
-                return $scope.polls.pollChoices.length;
+            if ($scope.choices !== undefined) {
+                return $scope.choices.length;
             }
         };
 
         //Determine if the current choice is the last choice in the poll
         $scope.isLastChoice = function(choiceIndex) {
-            return choiceIndex !== ($scope.polls.pollChoices.length - 1);
+            return choiceIndex !== ($scope.choices.length - 1);
         };
-    }, true);
+    });
     
     //used to repopulate the feed
     $scope.clearFeed = function()

@@ -25,14 +25,6 @@
         "allowComments": false,
         "allowLikes": false
     },
-    "polls":{
-	"pollChoices": [
-	    {
-		"text": "test choice",
-		"remove": false
-	    }      
-		]
-    },
     "target": {
         "id": 1,
         "profileId": 1,
