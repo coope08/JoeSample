@@ -28,7 +28,7 @@
     "polls":{
 	"pollChoices": [
 	    {
-		"text": "",
+		"text": "test choice",
 		"remove": false
 	    }      
 		]
@@ -46,7 +46,7 @@
                 "title": "QA LOE Status",
                 "type": "TextPost",
                 "body": "changed QA LOE from a blank value to 3.00",
-                "timestamp": "2013-03-24T15:06:44.817Z"
+                "timestamp": "2013-08-22T15:06:44.817Z"
             },
             {
                 "from": "Courtney Dascenzo",
@@ -55,7 +55,7 @@
                 "type": "FilePost",
                 "fileUrl": "sampleFile.pdf",
                 "body": "Just a sample file",
-                "timestamp": "2013-03-23T18:22:01.817Z"
+                "timestamp": "2013-08-22T18:22:01.817Z"
             },
             {
                 "from": "Courtney Dascenzo",
@@ -65,7 +65,7 @@
                 "linkName": "salesforce.com Homepage",
                 "linkUrl": "http://www.salesforce.com",
                 "body": "Just a sample link",
-                "timestamp": "2013-03-22T08:37:19.817Z"
+                "timestamp": "2013-08-21T08:37:19.817Z"
             }
         ]
     },
