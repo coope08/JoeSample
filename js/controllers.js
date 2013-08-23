@@ -32,7 +32,9 @@ function ChatterTemplateCtrl($scope) {
 
         $scope.showFileUploadModes = true;
         
-        $scope.pollChoices = [];
+        $scope.polls = {
+            choice : [{text: "", remove: false}]
+        }
 
         $scope.showFeeds = ($scope.settings.expandFeeds === undefined || $scope.settings.expandFeeds === "")? true : $scope.settings.expandFeeds;
 
@@ -194,13 +196,13 @@ alert($scope.polls.pollChoices.length);
   	//add a choice to a poll
   	$scope.addPollChoice = function() 
   	{
-  		alert("before add");
+  		alert("before add"+$scope.choiceText);
   		var newChoice = {};
     		newChoice.text = $scope.choiceText;
     		newChoice.remove = false;
   		
     	//$scope.polls.pollChoices.push(newChoice);
-    	$scope.pollChoices.push(newChoice);
+    	$scope.polls.push(newChoice);
     	alert("after add: "+$scope.polls.pollChoices.length);
     	$scope.choiceText = "";
   	};
