@@ -14,7 +14,7 @@ function HomePageCtrl($scope, $http) {
             $scope.model = JSON.parse(JSON.stringify(data));
         });
         
-        alert("hpcont");
+
 }
 
 function ChatterTemplateCtrl($scope) {
@@ -329,7 +329,7 @@ alert($scope.polls.choices.length);
     
    
     //post the file feed item to the chatter feed
-  /*  $scope.onFileSelect = function(files)
+    $scope.onFileSelect = function(files)
     {
     	//data for the link POST item must contain attachment, attachment type, body and body type
 	    if ($scope.showFileUploadModes == true)
@@ -383,13 +383,11 @@ alert($scope.polls.choices.length);
     		//turn the data into a string so we can send it over POST method
     		data = JSON.stringify(data);
     		//use forcetk.js ajax method to post the data
-    		client.ajax('/v27.0/chatter/feeds/record/'+$scope.recordId+'/feed-items', $scope.postLinkSuccess, $scope.errorCallback, "POST", data);
+    		client.ajax('/v27.0/chatter/feeds/record/'+$scope.recordId+'/feed-items', $scope.postFileSuccess, $scope.errorCallback, "POST", data);
     		$scope.postingState = true;
     	
-    	
-    		$scope.$apply(function(){$scope.model});
     	}
-    }; */
+    }; 
     
     //post the post items to the chatter feed
     $scope.postTextItem = function()
