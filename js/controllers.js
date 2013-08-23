@@ -31,6 +31,8 @@ function ChatterTemplateCtrl($scope) {
         $scope.focussedInput = false;
 
         $scope.showFileUploadModes = true;
+        
+        $scope.pollChoices = [];
 
         $scope.showFeeds = ($scope.settings.expandFeeds === undefined || $scope.settings.expandFeeds === "")? true : $scope.settings.expandFeeds;
 
@@ -197,8 +199,8 @@ alert($scope.polls.pollChoices.length);
     		newChoice.text = $scope.choiceText;
     		newChoice.remove = false;
   		
-    	$scope.polls.pollChoices.push(newChoice);
-    	$scope.target.feedItems.push(newItem);
+    	//$scope.polls.pollChoices.push(newChoice);
+    	$scope.pollChoices.push(newChoice);
     	alert("after add: "+$scope.polls.pollChoices.length);
     	$scope.choiceText = "";
   	};
