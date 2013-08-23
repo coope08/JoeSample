@@ -325,71 +325,82 @@ alert($scope.polls.choices.length);
     	$scope.$apply(function(){$scope.model});
     };
     
+    
+    $scope.onFileSelect = function(files) {
+            console.log(files);
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                $http.uploadFile({
+                    url: 'api/file',
+                    file: file
+                })
+            }
+        }
+    
+    
+    
+    
     //post the file feed item to the chatter feed
-    $scope.postFileItem = function()
+    $scope.onFileSelect = function(files)
     {
     	//data for the link POST item must contain attachment, attachment type, body and body type
 	    if ($scope.showFileUploadModes == true)
 	    {
-	    	var data = {
-	    		"attachment": {
-	    			"attachmentType": "ExistingContent", 
-	    			"contentDocumentId": ""
-	    		},
-	    		"body": {
-	    			"messageSegments": [{
-	    				"type": "Text",
-	    				"text": ""
-	    			}]
-	    		}
-	    	};
-	    } else 
-	    {	
-	    	var data = {
-	    		"attachment": {
-	    			"attachmentType": "NewFile", 
-	    			"description": "",
-	    			"title": ""
-	    		},
-	    		"body": {
-	    			"messageSegments": [{
-	    				"type": "Text",
-	    				"text": ""
-	    			}]
-	    		}
-	    	};
-	    }
-    	//update the link data object with data from the input fields
-    	data.body.messageSegments[0].text = $scope.fileModeTextAreaValue;
-    	//check if any inputs are null, and set them to ""
-    	if ($scope.fileModeTextAreaValue == null)
-    	{	
-    		data.body.messageSegments[0].text = "";
-    	}
+	    
+	    	console.log(files);
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                	
+	    		var data = {
+	    			"attachment": {
+	    				"attachmentType": "ExistingContent", 
+	    				"contentDocumentId": ""
+	    			},
+	    			"body": {
+	    				"messageSegments": [{
+	    					"type": "Text",
+	    					"text": ""
+	    				}]
+	    			}
+	    		};
+	   	 } else 
+	   	 {	
+	    		var data = {
+	    			"attachment": {
+	    				"attachmentType": "NewFile", 
+	    				"description": "",
+	    				"title": ""
+	    			},
+	    			"body": {
+	    				"messageSegments": [{
+	    					"type": "Text",
+	    					"text": ""
+	    				}]
+	    			}
+	    		};
+	    	}
+    		//update the file data object with data from the input fields
+    		data.body.messageSegments[0].text = $scope.fileModeTextAreaValue;
+    		//check if any inputs are null, and set them to ""
+    		if ($scope.fileModeTextAreaValue == null)
+    		{	
+    			data.body.messageSegments[0].text = "";
+    		}
     	
-    	data.attachment.url = $scope.linkModeLinkUrl;
-    	data.attachment.urlName = $scope.linkModeLinkName;
+    		data.attachment.description = $scope.fileModeTextAreaValue;
+    		data.attachment.title = "Testing";
     	
-    	if ($scope.linkModeLinkName == null)
-    	{
-    		data.attachment.urlName = "";
-    	}
+    		
     	
-    	//url can't be null so we alert user if it is
-    	if ($scope.linkModeLinkUrl != null && $scope.linkModeLinkUrl != "")
-    	{
     		//turn the data into a string so we can send it over POST method
     		data = JSON.stringify(data);
     		//use forcetk.js ajax method to post the data
     		client.ajax('/v27.0/chatter/feeds/record/'+$scope.recordId+'/feed-items', $scope.postLinkSuccess, $scope.errorCallback, "POST", data);
     		$scope.postingState = true;
-    	}
-    	else
-    	{
-    		alert("Please enter the link url");
-    	}
     	
-    	$scope.$apply(function(){$scope.model});
+    	
+    		$scope.$apply(function(){$scope.model});
+    	}
     };
     
     //post the post items to the chatter feed
