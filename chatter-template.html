@@ -163,8 +163,8 @@
                   </div> 
                 </div>
                 <div class="span10" ng-show="choiceCount() > 0">      
-                	<div class="well anti-well poll-inputs">
-                		
+                	
+                		<div class="row-fluid">
                 			<ul class="unstyled">
         						<li ng-repeat="choice in choices">
           							<input class="span2" type="checkbox" ng-model="choice.done">
@@ -172,8 +172,8 @@
           							[ <a href="" ng-click="removeChoices()">remove</a> ]
         						</li>
         					</ul>	
-                		
-                	</div>
+                		</div>
+                	
                </div>
                <!-- <form ng-submit="addPollChoice()"> -->
                 <div class="well anti-well poll-inputs">

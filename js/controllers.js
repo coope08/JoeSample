@@ -126,8 +126,6 @@ function ChatterTemplateCtrl($scope) {
     
     //Keep a watch over the polls attribute
     $scope.$watch('choices', function() {
-
-alert("in watch");
         //Return if polls choices is still not populated
         if ($scope.choices === undefined) {
             return;
@@ -195,12 +193,10 @@ alert("in watch");
   	//add a choice to a poll
   	$scope.addPollChoice = function() 
   	{
-  		alert("before add"+$scope.choiceText);
   		$scope.choices.push({
             text: $scope.choiceText,
             done: false
         });
-    	alert("after add: "+$scope.choices.length);
     	$scope.choiceText = "";
   	};
     
