@@ -82,41 +82,7 @@
             </div>
             </form>
 
-            <!-- The "File" based chatter mode -->
-            <form ng-submit="onFileSelect()">
-            <div class="file-mode" ng-show="isChatterModeActive('File')">
-                <div class="well anti-well file-upload-mode-group">
-                    <div class="row-fluid" ng-show="showFileUploadModes">
-
-                        <div class="span6 well anti-well file-upload-mode">
-                            <a href="">Select a file from Salesforce</a>
-                        </div>
-
-                        <div class="span6 well anti-well file-upload-mode">
-                            <a href="" ng-click="showFileUploadModes = false">Upload a file from your computer</a>
-                        </div>
-
-                    </div>
-
-                    <div ng-show="!showFileUploadModes">
-                    	<input class="btn btn-mini" type="file" value="Choose File">
-                        <!-- <button class="btn btn-mini" type="button">Chose File</button> -->
-                        No file chosen
-                        <button type="button" class="close" ng-click="showFileUploadModes = true">&times;</button>
-                        <h6 class="muted">Maximum file size is 2GB</h6>
-                    </div>
-                </div>
-                <div class="file-description">
-                    <textarea rows="3" ng-model="fileModeTextAreaValue" placeholder="Say something about this file..."></textarea>
-                </div>
-                <div class="well file-upload-footer">
-                    <span class="pull-left">
-                        To this {{target.type}} <a href=""><i class="icon-info-sign"></i></a>
-                    </span>
-                    <button type="button" class="btn btn-success pull-right">Share</button>
-                </div>
-            </div>
-            </form>
+            
 
             <!-- The "Link" based chatter mode -->
             <form ng-submit="postLinkItem()">
