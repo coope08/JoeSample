@@ -202,7 +202,7 @@ alert($scope.polls.pollChoices.length);
     		newChoice.remove = false;
   		
     	//$scope.polls.pollChoices.push(newChoice);
-    	$scope.polls.push(newChoice);
+    	$scope.polls.choice.push(newChoice);
     	alert("after add: "+$scope.polls.pollChoices.length);
     	$scope.choiceText = "";
   	};
