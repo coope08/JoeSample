@@ -13,6 +13,8 @@ function HomePageCtrl($scope, $http) {
             //Assign it to the scope
             $scope.model = JSON.parse(JSON.stringify(data));
         });
+        
+        alert("hpcont");
 }
 
 function ChatterTemplateCtrl($scope) {
@@ -325,23 +327,9 @@ alert($scope.polls.choices.length);
     	$scope.$apply(function(){$scope.model});
     };
     
-    
-    $scope.onFileSelect = function(files) {
-            console.log(files);
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                $http.uploadFile({
-                    url: 'api/file',
-                    file: file
-                })
-            }
-        }
-    
-    
-    
-    
+   
     //post the file feed item to the chatter feed
-    $scope.onFileSelect = function(files)
+  /*  $scope.onFileSelect = function(files)
     {
     	//data for the link POST item must contain attachment, attachment type, body and body type
 	    if ($scope.showFileUploadModes == true)
@@ -401,7 +389,7 @@ alert($scope.polls.choices.length);
     	
     		$scope.$apply(function(){$scope.model});
     	}
-    };
+    }; */
     
     //post the post items to the chatter feed
     $scope.postTextItem = function()
