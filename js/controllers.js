@@ -124,22 +124,22 @@ function ChatterTemplateCtrl($scope) {
     //Keep a watch over the polls attribute
     $scope.$watch('polls', function() {
 
-alert($scope.polls.choices.length);
+alert($scope.polls.pollChoices.length);
         //Return if polls choices is still not populated
-        if ($scope.polls.choices === undefined) {
+        if ($scope.polls.pollChoices === undefined) {
             return;
         }
 
         //Returns the number of choices in a poll
         $scope.choiceCount = function() {
-            if ($scope.polls.choices !== undefined) {
-                return $scope.polls.choices.length;
+            if ($scope.polls.pollChoices !== undefined) {
+                return $scope.polls.pollChoices.length;
             }
         };
 
         //Determine if the current choice is the last choice in the poll
         $scope.isLastChoice = function(choiceIndex) {
-            return choiceIndex !== ($scope.polls.choices.length - 1);
+            return choiceIndex !== ($scope.polls.pollChoices.length - 1);
         };
     }, true);
     
@@ -181,11 +181,11 @@ alert($scope.polls.choices.length);
     //remove a choice from the poll
     $scope.removeChoices = function() 
     {
-    	var oldChoices = $scope.polls.choices;
-    	$scope.polls.choices = [];
+    	var oldChoices = $scope.polls.pollChoices;
+    	$scope.polls.pollChoices = [];
     	angular.forEach(oldChoices, function(choice) {
         	if (!choice.remove) 
-        		$scope.polls.choices.push(choice);
+        		$scope.polls.pollChoices.push(choice);
     	});
   	};
   	
@@ -197,8 +197,9 @@ alert($scope.polls.choices.length);
     		newChoice.text = $scope.choiceText;
     		newChoice.remove = false;
   		
-    	$scope.polls.choices.push(newChoice);
-    	alert("after add: "+$scope.polls.choices.length);
+    	$scope.polls.pollChoices.push(newChoice);
+    	$scope.target.feedItems.push(newItem);
+    	alert("after add: "+$scope.polls.pollChoices.length);
     	$scope.choiceText = "";
   	};
     
