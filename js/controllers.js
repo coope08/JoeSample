@@ -329,7 +329,7 @@ alert($scope.polls.choices.length);
     
    
     //post the file feed item to the chatter feed
-    /*$scope.onFileSelect = function(files)
+    $scope.onFileSelect = function(files)
     {
     	//data for the link POST item must contain attachment, attachment type, body and body type
 	    if ($scope.showFileUploadModes == true)
@@ -387,7 +387,7 @@ alert($scope.polls.choices.length);
     		$scope.postingState = true;
     	
     	}
-    }; */
+    }; 
     
     //post the post items to the chatter feed
     $scope.postTextItem = function()
