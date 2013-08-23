@@ -83,7 +83,7 @@
             </form>
 
             <!-- The "File" based chatter mode -->
-            <form enctype="multipart/form-data" name="feedItemFileUpload" ng-submit="onFileSelect()">
+            <!-- <form enctype="multipart/form-data" name="feedItemFileUpload" ng-submit="onFileSelect()"> -->
             <div class="file-mode" ng-show="isChatterModeActive('File')">
                 <div class="well anti-well file-upload-mode-group">
                     <div class="row-fluid" ng-show="showFileUploadModes">
@@ -99,7 +99,7 @@
                     </div>
 
                     <div ng-show="!showFileUploadModes">
-                    	<input class="btn btn-mini" type="file" value="Choose File" multiple>
+                    	<input class="btn btn-mini" type="file" value="Choose File" multiple ng-file-select="onFileSelect(files)" multiple>
                         <!-- <button class="btn btn-mini" type="button">Chose File</button> -->
                         No file chosen
                         <button type="button" class="close" ng-click="showFileUploadModes = true">&times;</button>
@@ -116,7 +116,7 @@
                     <button type="button" class="btn btn-success pull-right">Share</button>
                 </div>
             </div>
-            </form>
+            <!-- </form> -->
 
             <!-- The "Link" based chatter mode -->
             <form ng-submit="postLinkItem()">
