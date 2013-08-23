@@ -167,10 +167,10 @@
                 		<div class="row-fluid">
                 			<ul class="unstyled">
         						<li ng-repeat="choice in choices">
-          							<input type="checkbox" ng-model="choice.done">
-          							<span class="pull-left">{{choice.text}}</span>
+          							<input class="span2" type="checkbox" ng-model="choice.done">
+          							<span class="span8">{{choice.text}}</span>
+          							[ <a href="" ng-click="removeChoices()">remove</a> ]
         						</li>
-        						 [ <a href="" ng-click="removeChoices()">remove</a> ]
         					</ul>	
                 		</div>
                 	</div>
