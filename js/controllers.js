@@ -19,6 +19,8 @@ function HomePageCtrl($scope, $http) {
 
 function ChatterTemplateCtrl($scope) {
 
+	$scope.choices = [];
+
     //Keep a watch over the settings attribute
     $scope.$watch('settings', function () {
 
@@ -32,9 +34,6 @@ function ChatterTemplateCtrl($scope) {
 
         $scope.showFileUploadModes = true;
         
-        $scope.polls = {
-            choice : [{text: "", remove: false}]
-        }
 
         $scope.showFeeds = ($scope.settings.expandFeeds === undefined || $scope.settings.expandFeeds === "")? true : $scope.settings.expandFeeds;
 
@@ -197,13 +196,11 @@ alert($scope.polls.pollChoices.length);
   	$scope.addPollChoice = function() 
   	{
   		alert("before add"+$scope.choiceText);
-  		var newChoice = {};
-    		newChoice.text = $scope.choiceText;
-    		newChoice.remove = false;
-  		
-    	//$scope.polls.pollChoices.push(newChoice);
-    	$scope.polls.choice.push(newChoice);
-    	alert("after add: "+$scope.polls.pollChoices.length);
+  		$scope.choices.push({
+            text: $scope.choiceText,
+            done: false
+        });
+    	alert("after add: "+$scope.choices.length);
     	$scope.choiceText = "";
   	};
     
