@@ -175,6 +175,7 @@
                 		</div>
                 	</div>
                </div>
+               <form ng-submit="addPollChoice()">
                 <div class="well anti-well poll-inputs">
                     <div class="row-fluid">
                         <div class="span2">
@@ -183,13 +184,13 @@
                         <div class="span8">
                             <input type="text" ng-model="choiceText" class="input-block-level" value="">
                         </div>
-                        <form ng-submit="addPollChoice()">
+                        
                         <div class="span2">
                         <input class="btn btn-success pull-right" type="submit" value="add">
                     	</div>
-                    	</form>
                     </div>
                 </div>
+                </form>
            		<form ng-submit="postPollItem()">
                 <div class="well poll-upload-footer">
                     <span class="pull-left">
