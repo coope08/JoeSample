@@ -167,8 +167,8 @@
                 		<div class="row-fluid">
                 			<ul class="unstyled">
         						<li ng-repeat="choice in polls.pollChoices">
-          							<input type="checkbox" ng-model="polls.pollChoices[choice].remove">
-          							<span class="pull-left">{{polls.pollChoices[choice].text}}</span>
+          							<input type="checkbox" ng-model="choice[$index].remove">
+          							<span class="pull-left">{{choice[$index].text}}</span>
         						</li>
         						 [ <a href="" ng-click="removeChoices()">remove</a> ]
         					</ul>	
