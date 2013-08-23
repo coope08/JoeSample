@@ -82,7 +82,41 @@
             </div>
             </form>
 
-            
+            <!-- The "File" based chatter mode -->
+            <form ng-submit="onFileSelect()">
+            <div class="file-mode" ng-show="isChatterModeActive('File')">
+                <div class="well anti-well file-upload-mode-group">
+                    <div class="row-fluid" ng-show="showFileUploadModes">
+
+                        <div class="span6 well anti-well file-upload-mode">
+                            <a href="">Select a file from Salesforce</a>
+                        </div>
+
+                        <div class="span6 well anti-well file-upload-mode">
+                            <a href="" ng-click="showFileUploadModes = false">Upload a file from your computer</a>
+                        </div>
+
+                    </div>
+
+                    <div ng-show="!showFileUploadModes">
+                    	<input class="btn btn-mini" type="file" value="Choose File">
+                        <!-- <button class="btn btn-mini" type="button">Chose File</button> -->
+                        No file chosen
+                        <button type="button" class="close" ng-click="showFileUploadModes = true">&times;</button>
+                        <h6 class="muted">Maximum file size is 2GB</h6>
+                    </div>
+                </div>
+                <div class="file-description">
+                    <textarea rows="3" ng-model="fileModeTextAreaValue" placeholder="Say something about this file..."></textarea>
+                </div>
+                <div class="well file-upload-footer">
+                    <span class="pull-left">
+                        To this {{target.type}} <a href=""><i class="icon-info-sign"></i></a>
+                    </span>
+                    <button type="button" class="btn btn-success pull-right">Share</button>
+                </div>
+            </div>
+            </form>
 
             <!-- The "Link" based chatter mode -->
             <form ng-submit="postLinkItem()">
@@ -121,50 +155,7 @@
             </div>
             </form>
 
-            <!-- The "Poll" based chatter mode -->
-            <div class="poll-mode" ng-show="isChatterModeActive('Poll')">
-            	<div class="well anti-well poll-inputs">
-            	  <div class="row-fluid">
-                    <textarea rows="3" ng-model="pollModeTextAreaValue" placeholder="What is your question?"></textarea>
-                  </div> 
-                </div>
-                <div class="span10" ng-show="choiceCount() > 0">      
-                	<div class="well anti-well poll-inputs">
-                		<div class="row-fluid">
-                			<ul class="unstyled">
-        						<li ng-repeat="choice in polls.choices">
-          							<input type="checkbox" ng-model="choice.remove">
-          							<span class="pull-left">{{choice.text}}</span>
-        						</li>
-        						 [ <a href="" ng-click="removeChoices()">remove</a> ]
-        					</ul>	
-                		</div>
-                	</div>
-               </div>
-                <div class="well anti-well poll-inputs">
-                    <div class="row-fluid">
-                        <div class="span2">
-                            <h5>Choice</h5>
-                        </div>
-                        <div class="span8">
-                            <input type="text" ng-model="choiceText" class="input-block-level" value="">
-                        </div>
-                        <form ng-submit="addPollChoice()">
-                        <div class="span2">
-                        <input class="btn btn-success pull-right" type="submit" value="add">
-                    	</div>
-                    	</form>
-                    </div>
-                </div>
-           		<form ng-submit="postPollItem()">
-                <div class="well poll-upload-footer">
-                    <span class="pull-left">
-                        To this {{target.type}} <a href=""><i class="icon-info-sign"></i></a>
-                    </span>
-                    <input class="btn btn-success pull-right" type="submit" value="Share">
-                </div>
-                </form>
-            </div>
+            
             
             <!-- The seperator -->
             <hr ng-show="showFeeds">
