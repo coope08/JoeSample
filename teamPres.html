@@ -1,0 +1,293 @@
+<!doctype html>
+
+
+
+<html lang="en">
+<head><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Speakeasy</title>
+    
+    <meta name="description" content="" />
+    <meta name="author" content="Speakeasy" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon"  type="image/png"  href="/favicon.ico?v=2" />
+    <!--
+        
+        Impress.js doesn't depend on any external stylesheet. Script adds all styles it needs for
+        presentation to work.
+        
+        This style below contains styles only for demo presentation. Browse it to see how impress.js
+        classes are used to style presentation steps, or how to apply fallback styles, but I don't want
+        you to use them directly in your presentation.
+        
+        Be creative, build your own. We don't really want all impress.js presentations to look the same,
+        do we?
+        
+        When creating your own presentation get rid of this file. Start from scratch, it's fun!
+        
+    -->
+    <!--<link href="css/impress-demo.css" rel="stylesheet" />
+    <link href="css/animation.css" rel="stylesheet" />-->
+
+    <link href="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors-37640d8586e390acdd8964848005b63b.css" media="screen" rel="stylesheet" type="text/css" />
+
+    <!--  <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" /> -->
+
+    
+<script>
+
+// inline functions like a boss for the prez.
+
+function selNum(target){	
+	// remove the selected class to all the links
+	var b = $("#toplink li");
+	$.each(b, function(e, v){
+		$(v).removeClass("selected");
+	});
+	
+	$("#link_" + target).addClass("selected");
+}
+
+
+function gotoPage(n){
+	$('#impress').jmpress('goTo', '#slide-' + n);
+}
+
+
+</script>
+</head>
+
+
+
+<body class="impress-not-supported">
+<div id="popup"></div>
+
+<div id="topbar">
+
+	<ul id="toplink">
+		<li id="link_1"><a href="#" onclick="gotoPage(1); return false;" class="number">1</a><span class="subhead">GIS Cloud</span></li>
+		<li id="link_2"><a href="#" onclick="gotoPage(2); return false;" class="number">2</a><span class="subhead">What they do</span></li>
+		<li id="link_3"><a href="#" onclick="gotoPage(3); return false;" class="number">3</a><span class="subhead">Field Service Inspector</span></li>
+		<li id="link_4"><a href="#" onclick="gotoPage(4); return false;" class="number">4</a><span class="subhead">The Problem</span></li>
+		<li id="link_5"><a href="#" onclick="gotoPage(5); return false;" class="number">5</a><span class="subhead">The Solution</span></li>
+		<li id="link_6"><a href="#" onclick="gotoPage(6); return false;" class="number">6</a><span class="subhead">Market</span></li>
+		<li id="link_7"><a href="#" onclick="gotoPage(7); return false;" class="number">7</a><span class="subhead">Technology</span></li>
+		<li id="link_8"><a href="#" onclick="gotoPage(8); return false;" class="number">8</a><span class="subhead">Enablement</span></li>
+		<li id="link_9"><a href="#" onclick="gotoPage(9); return false;" class="number">9</a><span class="subhead">Platform Gaps</span></li>
+		<li id="link_10"><a href="#" onclick="gotoPage(10); return false;" class="number">10</a><span class="subhead">Roadmap</span></li>
+	<!--<li id="link_11"><a href="mailto:contact@getspeakeasy.com"  class="email" target="_blank"><img alt="Email" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/email-e9c471421fff5b3d7bc8825f0d64ae9b.png" /></a><span class="subhead">Email</span></li>
+		<li id="link_12"><a href="http://angel.co/speakeasy-2"  class="angellist" target="_blank"><img alt="Angellist" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/angellist-bb7d6646ed4b9a979210a80f33bca785.png" /></a><span class="subhead">AngelList</span></li>
+	-->
+	</ul>
+	<div id="right_logo"><img alt="Littlelogo" src="http://d3kbezf2psbqtd.cloudfront.net/wp-content/themes/wp-omnia/images/logo.png?nch=43" /></div>
+</div>
+
+<div id="impress">
+
+    <div  id="slide-1" data-prev="slide-10"  class="step slide slide_title" data-x="-1000" data-y="-1500">
+    	<img alt="Slide1" src="http://d3kbezf2psbqtd.cloudfront.net/wp-content/themes/wp-omnia/images/header1.png?nch=43" />
+    </div>
+
+    <div id="slide-2" class="step slide slide_whatis" data-x="-1000" data-y="-700">
+      <img alt="Whatwedo" class="header" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/whatwedo-940d99bfdb6a9e660acaed75742b35ea.png" />
+    	<div id="what1"><img alt="What_img1" class="whatimg" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/what_img1-8ff45abc8d1b44006b4b0bcabcef3599.png" /></div>
+    	<div id="what2"><img alt="What_img2" class="whatimg" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/what_img2-06a3588a0b61d53350b2de853a90d96a.png" /></div>
+    	<div id="what3"><img alt="What_img3" class="whatimg" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/what_img3-67cbc29ff8c5e47d24318f26ca4f7be7.png" /></div>
+    	<div id="what4"><img alt="What_img4" class="whatimg" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/what_img4-faa3ea20ebafd5951f9a5a466f90d248.png" /></div>
+    	<center><div class="whatistext"> We are changing the face of events around the world. </div></center>
+    </div>
+ 
+    <div id="slide-3" class="step slide slide_team" data-x="-1000"  data-y="0">
+      <img alt="Team" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/team-e1c6a0c211afef4651d4a48a7465f633.png" />
+    </div>
+    
+	  <div id="slide_flyby" class="step slide_flyby" data-x="-1000" data-y="0" data-z="-750" data-scale=".5">
+      <img alt="Flyby" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/flyby-3f40d4b0c39e5391e7d49725f4ca472c.png" />
+	  </div>
+    <div id="slide-4"  class="step slide_traction" data-prev="#slide-3" data-x="-1000" data-y="0" data-z="-1200" data-scale=".5">
+         <img alt="Traction" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/traction-bd4d0138ac18473d02b43c93bef9c714.png" />
+    	   <div  data-jmpress="fade-slow after 100ms step" id="one"></div>
+    	   <div data-jmpress="zoom after 1500ms step" id="one-one"></div>
+    	   <div data-jmpress="zoom after 2500ms step" id="two"></div>
+    	   <div data-jmpress="zoom after 3500ms step" id="three"></div>
+    	   <div data-jmpress="zoom after 4500ms step" id="four"></div>
+    	   <div data-jmpress="zoom after 5500ms step" id="five"></div>
+    	   <div data-jmpress="fade-slow after 6500ms step" id="newsmedia"></div>
+    	   <div id="cnt_number">2</div>
+    </div>
+    
+    <div id="slide-5" class="step slide_is" data-x="-1000" data-y="350" data-z="-1200" data-scale=".5">
+      <img alt="Speakeasyis" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/speakeasyis-4d85e913581067c4771cbfb411e5ece7.png" />
+    </div>
+    
+     <div id="slide-6"  class="step slide_ourmarket"  data-x="-1000" data-y="700" data-z="-1200" data-scale=".5">
+        <img alt="Ourmarket" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/ourmarket-5caa7265d26983d052258731788e6f0e.png" />
+        <div id="market_wrapper" >
+	        <div data-jmpress="zoom after 1400ms step" id="market_clubs"><img alt="Market_clubs" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/market_clubs-292b05d074770370b76bb9c2eff866f0.png" /></div>
+	    	<div data-jmpress="zoom after 1200ms step" id="market_tm"><img alt="Market_ticketmaster" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/market_ticketmaster-cd89a1949ad04da50da24b03665bfef2.png" /></div>
+	   		<div data-jmpress="zoom after 1000ms step" id="market_eco"><img alt="Market_eventco" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/market_eventco-f31ea0763d20ec40db849ca4d88a7b53.png" /></div>
+	   		<div data-jmpress="zoom after 800ms step" id="market_eb"><img alt="Market_eventbrite" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/market_eventbrite-75214ed46d9c4bb28589c006f3e3d7f4.png" /></div>
+   		</div>
+   	 	<div id="market_new" data-jmpress="zoom after 1800ms step"><img alt="Market_new" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/market_new-cd801d27776aa9235ce54eff2b818978.png" /></div>
+    </div>
+  
+    <div id="slide-7" class="step slide_problem"  data-x="850" data-y="3000" data-rotate-x="90" data-rotate="90" data-scale="5">
+      <img alt="Theproblem" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/theproblem-3512c1b6107747647caec915dae56a82.png" />
+    </div>
+
+    <div id="slide-8" class="step slide_solution" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+      <img alt="Thesolution" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/thesolution-4dbd9134ca004315b722f31be6a48020.png" />
+    </div>
+
+ 	<div id="slide-crowd"  data-exclude="true" class="step slide_how opaque" data-x="3400" data-y="2000" data-z="-100" data-rotate="180" data-scale="1">
+        <img alt="How_crowd" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/how_crowd-8c519c02956fa5bf26497917b2771b3e.png" />
+    </div>
+    
+    <div id="slide-kids"  data-exclude="true" class="step slide_how opaque" data-x="3400" data-y="2050" data-z="-300" data-rotate="180" data-scale="1.1">
+        <img alt="How_kids" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/how_kids-697ded000bcb8ded7d42ad1f99cb43c2.png" />
+    </div>
+    
+    <div id="slide-kids"  data-exclude="true" class="step slide_how opaque" data-x="2650" data-y="1970" data-z="0" data-rotate="180" data-scale="1">
+        <img alt="How_guy2" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/how_guy2-41fe2427ebfe90d54c99203342c00913.png" />
+    </div>
+
+    <div id="slide-9"  class="step slide_how" data-x="3500" data-y="2100" data-z="0" data-rotate="180" data-scale="1">
+        <div><img alt="Howitworks" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/howitworks-f554c1cea60e9db5874c9ab2c13a9bf4.png" />
+        <div data-jmpress="zoom after 1000ms step" id="one"></div>
+        <div data-jmpress="zoom after 2000ms step" id="two"></div>
+        <div data-jmpress="zoom after 3000ms step" id="three"></div>
+        <div data-jmpress="zoom after 4000ms step" id="four"></div>
+        <div data-jmpress="zoom after 5000ms step" id="eventtypes"></div></div>
+    </div>
+    
+    
+
+	
+    <div id="slide-10"  class="step slide_contact" data-x="2025" data-y="1825" data-z="-1000"  data-rotate="270" data-scale="1">
+      <img alt="Contact" src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors/contact-9cea5c38d3c640d87e5f522619c079df.png" />
+    </div>
+<!-- 
+    <div id="slide-10"  data-next="slide-1" class="step slide_contact" data-x="1225" data-y="1325" data-z="1000" data-rotate="90" data-scale="1">
+       
+    </div>
+-->   
+
+</div>
+
+<script src="https://speakeasy-production-assets.s3.amazonaws.com/assets/investors-d73cc369533e8a90c9f15a83dcf25a7e.js" type="text/javascript"></script>
+
+<script  type="text/javascript">
+
+var count = 2;
+function countUp(){
+	if(count<150){
+		setTimeout(function(){
+			$("#cnt_number").html(count);
+			countUp();
+			count++;
+		}, 27);
+	}
+}
+
+
+$(function(){
+
+	var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+	var version = $.browser.version;
+
+
+	// browser version popup	
+	$("#popup").hide();
+	if(is_chrome == true){
+		if(version < 535){
+			$("#popup").show();
+		}
+	}else{
+		$("#popup").show();
+	}
+	
+	// hide the popup on click
+	$("#popup").click(function(e){
+		$("#popup").fadeOut();
+	});
+	
+	
+	// the first slide is always selected upon load
+	// since hashes are disabled, let's show it as selected
+	selNum(1);
+	
+	$("#impress").jmpress({
+			hash: { use: false },
+			mouse: { clickSelects: false },
+			viewPort: {
+				  height: 700,
+				  width: 1200,
+				  maxScale: 1
+				}
+	});
+	
+	$('#slide_flyby').on('enterStep', function(n) { 
+		setTimeout(function(){
+			$('#impress').jmpress('next');
+		}, 1400);
+	});
+
+	for(i = 1; i<=10; i++){
+		
+		// event listener
+		$('#slide-'+i).on('enterStep', (function(n) { 
+			
+			return function(){ 
+				var rt_opacity = $("#right_logo").css("opacity");
+				
+				// fade logo out on first slide
+				if(n == 1){
+					$("#right_logo").fadeTo(70, 0);
+				}else if(n!=1){
+					if(rt_opacity<1){
+						$("#right_logo").fadeTo(70, 1);
+					}
+				}
+				
+				if(n == 4){
+					setTimeout(function(){
+						count = 2;
+						countUp();
+					}, 1700);
+					
+				}
+				
+				// set the selected class to the 
+				selNum(n);  
+			}
+		})(i));
+	}
+	
+});
+
+
+
+
+</script>
+
+<script type="text/javascript">if (typeof NREUMQ !== "undefined") { if (!NREUMQ.f) { NREUMQ.f=function() {
+NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");
+e.type="text/javascript";
+e.src=(("http:"===document.location.protocol)?"http:":"https:") + "//" +
+  "js-agent.newrelic.com/nr-100.js";
+document.body.appendChild(e);
+if(NREUMQ.a)NREUMQ.a();
+};
+NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","beacon-5.newrelic.com","015e232262","1197412","IF1bRUcLWAhcRRoWFgFeXFIaDVoSXERBCREQ",124,8,new Date().getTime(),"","","","",""]);}</script></body>
+</html>
+
+
